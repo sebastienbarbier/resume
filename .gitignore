@@ -1,0 +1,29 @@
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.bcf
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+*.toc
+*.lof
+*.lot
+*.nav
+*.snm
+*.vrb
+*.xdv
+
+# Keep the published PDF tracked; ignore other PDFs
+*.pdf
+!resume.pdf
+
+# Editor / OS
+.DS_Store
+*.swp
+*~
+.idea/
+.vscode/
+/*.pdf.bak
