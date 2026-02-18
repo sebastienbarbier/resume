@@ -1,6 +1,30 @@
-% Sébastien Barbier — Software Engineer
-% A4, compact spacing. Adapted from Jake Gutierrez / sb2nov.
-% Template: https://github.com/sb2nov/resume (MIT)
+% Adapted for Sébastien Barbier; A4 paper and compact spacing.
+% MIT License
+% 
+% Copyright (c) 2020 Jake Gutierrez
+% 
+% Permission is hereby granted, free of charge, to any person obtaining a copy
+% of this software and associated documentation files (the "Software"), to deal
+% in the Software without restriction, including without limitation the rights
+% to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+% copies of the Software, and to permit persons to whom the Software is
+% furnished to do so, subject to the following conditions:
+% 
+% The above copyright notice and this permission notice shall be included in all
+% copies or substantial portions of the Software.
+% 
+% THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+% IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+% FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+% AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+% LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+% OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+% SOFTWARE.
+%-------------------------
+% Resume in Latex
+% Author : Jake Gutierrez
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
 %------------------------
 
 \documentclass[a4paper,11pt]{article}
@@ -99,61 +123,55 @@
 
 \setlist[itemize]{itemsep=3pt,topsep=4pt,parsep=0pt}
 \titlespacing*{\section}{0pt}{12pt}{9pt}
-\hypersetup{pdftitle={Sébastien Barbier - Software Engineer},pdfauthor={Sébastien Barbier}}
+\hypersetup{pdftitle={Sébastien Barbier - Senior Software Engineer},pdfauthor={Sébastien Barbier}}
 \begin{document}
 \begin{center}
 {\Huge\scshape Sébastien Barbier}\\[3pt]
-{\large Software Engineer}\\[5pt]
+{\large Senior Software Engineer}\quad $|$\quad Frontend Architecture \& Full-Stack Development\\[5pt]
 \href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ xxxxxxxxx $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
-Zurich, Switzerland $|$ Swiss B Permit
+Zurich, Switzerland $|$ B permit (EU/EFTA)
 \end{center}
 \vspace{-3pt}
-\section{Experience}\resumeSubHeadingListStart
+Software engineer with 16+ years of experience spanning frontend leadership, distributed systems, and end-to-end product development. Former Staff Frontend Engineer at Unique and Associate Development Architect at SAP, with experience in financial services, healthcare, and open-source products.
+
+\section{Professional Experience}\resumeSubHeadingListStart
 \resumeSubheading{Staff Frontend Engineer}{Dec 2023 - Dec 2025}{Unique AG}{Zurich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{Led frontend engineering for an agentic AI chat platform for financial services.}
-\resumeItem{Used RAG and MCP to support context-aware, compliant, and insightful client interactions.}
+\resumeItem{Led frontend engineering for an agentic AI chat platform serving the financial services sector.}
+\resumeItem{Used retrieval-augmented generation (RAG) and Model Context Protocol (MCP) to support context-aware client interactions and compliance requirements.}
 \resumeItemListEnd
 \resumeSubheading{Full-stack Software Engineer}{Aug 2021 - Nov 2023}{Self-employed}{Zurich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{Built Seven23.io and FromEdwin.com as a full-time solo entrepreneur.}
-\resumeItem{Managed the entire stack, from architecture and development to DevOps, CI/CD, and delivery.}
-\resumeItem{Also provided liquidity in DeFi markets and explored decentralized finance infrastructure (Oct 2021 - Jul 2023).}
+\resumeItem{Developed Seven23.io and FromEdwin.com as a full-time solo entrepreneur, taking responsibility for the full product lifecycle.}
+\resumeItem{Owned architecture, frontend and backend development, infrastructure, CI/CD, and delivery.}
+\resumeItem{Crypto Liquidity Provider (Oct 2021 - Jul 2023): provided liquidity across decentralized finance (DeFi) markets and explored emerging protocols and infrastructure.}
 \resumeItemListEnd
-\resumeSubheading{Associate Development Architect / Senior Developer}{Feb 2020 - Jul 2021}{SAP}{Zurich, Switzerland / Remote}
+\resumeSubheading{Associate Development Architect}{Nov 2020 - Jul 2021}{SAP}{Zurich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{As Associate Development Architect (Nov 2020 - Jul 2021), helped design and implement FSM's extensibility protocol for secure third-party integrations; led architecture decisions and mentored developers.}
-\resumeItem{As Senior Developer and tech lead (Feb - Oct 2020), supported Field Service Management's migration to a microfrontend architecture.}
+\resumeItem{Helped design and implement the Field Service Management (FSM) extensibility concept: a distributed protocol enabling secure third-party integrations.}
+\resumeItem{Led architecture decisions, mentored developers, and supported scalable, high-quality product delivery.}
+\resumeItemListEnd
+\resumeSubheading{Senior Developer / Technical Lead}{Feb 2020 - Oct 2020}{SAP}{Zurich, Switzerland / Remote}
+\resumeItemListStart
+\resumeItem{Supported FSM's migration to a microfrontend architecture as technical lead, contributing to the application's modernization and scalability.}
 \resumeItemListEnd
 \resumeSubheading{Web Technologies Consultant and Freelancer}{Sep 2016 - Jan 2020}{Self-employed}{Chiang Mai, Thailand / Remote}
 \resumeItemListStart
-\resumeItem{Developed chatbots, PWAs, web extensions, React Native apps, and web integrations for clients including Chefclub, Mozilla, and Mila AG.}
+\resumeItem{Delivered web projects for clients including Chefclub, Mozilla, and Mila AG, spanning chatbots, progressive web apps, browser extensions, React Native apps, and web integrations.}
 \resumeItemListEnd
-\resumeSubheading{Front-end Developer}{Jun 2014 - Aug 2016}{Fluance AG}{Solothurn, Switzerland}
+\resumeSubheading{Front-end Developer / Technical Lead}{Jun 2014 - Aug 2016}{Fluance AG}{Solothurn, Switzerland}
 \resumeItemListStart
 \resumeItem{Led frontend development in a four-person team building a cross-platform HL7 patient data interface with jQuery, AngularJS, and FoundationCSS.}
-\resumeItem{Managed documentation, testing, and deployment under Scrum practices.}
-\resumeItemListEnd
-\resumeSubHeadingListEnd% Project dates, descriptions, and stacks verified on sebastienbarbier.com, 22 Sep 2026.
-% https://sebastienbarbier.com/projects/shellui/
-% https://sebastienbarbier.com/projects/seven23/
-\section{Projects}\resumeSubHeadingListStart
-\resumeSubheading{Shellui}{2026 - Present}{TypeScript, React, Django}{\href{https://shellui.com}{shellui.com}}
-\resumeItemListStart
-\resumeItem{Open-source microfrontend shell providing shared navigation, authentication, storage, and administration so teams can focus on their applications.}
-\resumeItemListEnd
-\resumeSubheading{Seven23}{2011 - Present}{React, Django, Material UI, Next.js}{\href{https://seven23.io}{seven23.io}}
-\resumeItemListStart
-\resumeItem{Open-source personal budgeting app for manual expense tracking, built with privacy by design and end-to-end encryption to protect financial data.}
+\resumeItem{Managed documentation, testing, and deployment within a Scrum development process.}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
+
 \newpage
-\noindent {\large\scshape Sébastien Barbier}\hfill\small Software Engineer\normalsize
-\section{Experience (continued)}\resumeSubHeadingListStart
+\noindent {\large\scshape Sébastien Barbier}\hfill\small Senior Software Engineer\normalsize
+\section{Earlier Experience}\resumeSubHeadingListStart
 \resumeSubheading{Java Developer}{Sep 2012 - Jun 2014}{Covalia}{Besançon, France}
 \resumeItemListStart
-\resumeItem{Contributed to the Covotem telemedicine platform, maintaining Java libraries and real-time interoperability with HL7 and DICOM.}
-\resumeItem{Supported deployment, customer assistance, and ISO 13485 compliance.}
+\resumeItem{Maintained Java libraries and real-time HL7/DICOM interoperability for the Covotem telemedicine platform; supported deployment, customers, and ISO 13485 compliance.}
 \resumeItemListEnd
 \resumeSubheading{Part-time Lecturer}{Sep 2011 and Sep 2012}{University of Franche-Comté}{France}
 \resumeItemListStart
@@ -161,41 +179,47 @@ Zurich, Switzerland $|$ Swiss B Permit
 \resumeItemListEnd
 \resumeSubheading{Co-founder and Full-stack Developer}{Jul 2009 - Jun 2012}{Ionyse}{Besançon, France}
 \resumeItemListStart
-\resumeItem{Co-founded a web agency during my master's, working part-time for two years before moving to a full-time role.}
-\resumeItem{Built websites and applications with a custom Python/Django CMS, specializing in frontend development and pixel-perfect HTML5, CSS3, and jQuery interfaces.}
+\resumeItem{Co-founded a web agency during my master's; built websites and applications with a custom Python/Django CMS and pixel-perfect HTML5, CSS3, and jQuery interfaces.}
 \resumeItemListEnd
-\resumeSubHeadingListEnd\section{Technical Skills}
-\begingroup
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{5pt}
-\fontsize{10.5}{13}\selectfont
-\textbf{Frontend}\\[2pt]
-JavaScript, React, Angular, Redux, GraphQL, Tailwind, D3.js, CSS animation.
+\resumeSubHeadingListEnd
 
-\textbf{Web Platform \& UX}\\[2pt]
-PWA, Web/Service Workers, IndexedDB, UX/UI, accessibility, SEO.
+% Dates, descriptions, and technology stacks: sebastienbarbier.com/projects/shellui/
+% and sebastienbarbier.com/projects/seven23/, verified 22 September 2026.
+\section{Selected Projects}\resumeSubHeadingListStart
+\resumeSubheading{Shellui}{2026 - Present}{TypeScript, React, Django}{\href{https://shellui.com}{shellui.com}}
+\resumeItemListStart
+\resumeItem{Open-source microfrontend shell with shared navigation, authentication, storage, and administration, enabling teams to focus on application development.}
+\resumeItemListEnd
+\resumeSubheading{Seven23}{2011 - Present}{React, Django, Material UI, Next.js}{\href{https://seven23.io}{seven23.io}}
+\resumeItemListStart
+\resumeItem{Open-source personal budgeting app for manual expense tracking, with end-to-end encryption, a progressive web app frontend, and a Django REST backend.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+
+\section{Technical Skills}
+\begingroup
+\setlength{\parindent}{0pt}\setlength{\parskip}{5pt}\fontsize{10.5}{13}\selectfont
+\textbf{Frontend \& Web Platform}\\[2pt]
+TypeScript, JavaScript, React, Angular, Redux, GraphQL, Next.js, Tailwind, PWA, Web/Service Workers, IndexedDB, accessibility, UX/UI.
 
 \textbf{Backend \& Architecture}\\[2pt]
-Python, Java, Django, FastAPI, REST APIs, SSO, system design, distributed systems, microservices, microfrontends, Celery, RabbitMQ, InfluxDB.
+Python, Java, Django, FastAPI, REST APIs, SSO, system design, distributed systems, microservices, microfrontends, Celery, RabbitMQ.
 
-\textbf{Delivery \& Testing}\\[2pt]
+\textbf{Delivery \& Quality}\\[2pt]
 CI/CD, Docker, Cypress, unit and E2E testing, Prometheus, Grafana, Loki, server administration.
 \par\endgroup
-\section{Education}\begingroup\renewcommand{\resumeItemListEnd}{\end{itemize}\vspace{-3pt}}\setlist[itemize]{itemsep=1pt,topsep=2pt,parsep=0pt}\resumeSubHeadingListStart\resumeSubheading{Master's in Computer Science}{2011}{University of Franche-Comté}{Besançon, France}
-\resumeItemListStart
-\resumeItem{Specialization: Distributed Systems and Networks. Internship: Nav6 Laboratory, Penang, Malaysia (4 months).}
-\resumeItemListEnd
-\resumeSubheading{Bachelor's in Computer Science}{2009}{University of Franche-Comté}{Besançon, France}
-\resumeItemListStart
-\resumeItem{Internship: MagicLabVision Laboratory, Adelaide, Australia (3 months).}
-\resumeItemListEnd
-\resumeSubheading{Final Year in Computer Science - Erasmus}{2008}{University of Portsmouth}{Portsmouth, England}
-\resumeSubheading{Higher National Certificate in Computer Science}{2007}{IUT of Belfort}{Belfort, France}
-\resumeItemListStart
-\resumeItem{Internship: Thales Avionics Electrical Systems, Chatou, France (3 months).}
-\resumeItemListEnd
-\resumeSubHeadingListEnd\endgroup
-\section{Languages \& Interests}
-French: Native $|$ English: Fluent $|$ German: B1\\[4pt]
-\textbf{Interests:} Photography, motorcycles, travel, blockchain, crypto, and trading.
+
+\section{Education}
+\begingroup\small
+\textbf{Master's in Computer Science} \hfill 2011\\
+Distributed Systems and Networks, University of Franche-Comté, France\\[5pt]
+\textbf{Bachelor's in Computer Science} \hfill 2009\\
+University of Franche-Comté, France\\[5pt]
+\textbf{Final Year in Computer Science - Erasmus} \hfill 2008\\
+University of Portsmouth, England\\[5pt]
+\textbf{Higher National Certificate in Computer Science} \hfill 2007\\
+IUT of Belfort, France
+\par\endgroup
+\section{Languages}
+French: Native $|$ English: Fluent $|$ German: B1
 \end{document}
