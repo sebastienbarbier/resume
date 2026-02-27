@@ -63,7 +63,7 @@ pdflatex resume.tex   # second pass for stable links/refs
 ## Layout notes
 
 - **Paper:** A4, tight margins, compact item spacing so two pages stay dense but readable.
-- **Template:** Adapted from [Jake Gutierrez / sb2nov](https://github.com/sb2nov/resume) (MIT).
+- **Template:** Adapted from [Jake Gutierrez's resume](https://github.com/jakegut/resume) (MIT), which was inspired by [sb2nov/resume](https://github.com/sb2nov/resume).
 - **PDF metadata:** Title and author set for search and ATS scanners.
 
 Feel free to reuse the structure for your own resume - keep the MIT attribution if you ship a derivative of the template.
@@ -72,4 +72,4 @@ Feel free to reuse the structure for your own resume - keep the MIT attribution 
 
 ## License
 
-MIT © Sébastien Barbier. The underlying LaTeX template is also MIT, originally by Jake Gutierrez based on [sb2nov/resume](https://github.com/sb2nov/resume).
+MIT © Sébastien Barbier. Layout adapted from [jakegut/resume](https://github.com/jakegut/resume) by Jake Gutierrez (MIT), itself based on [sb2nov/resume](https://github.com/sb2nov/resume).
