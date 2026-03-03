@@ -1,0 +1,66 @@
+% Cover letter companion to resume.tex (Jake Gutierrez / sb2nov style).
+% Workflow: edit the fields below and the three body paragraphs for each job offer.
+% Compile: make cover-letter   (or: make)
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,left=2.3cm,right=2.3cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\ifdefined\pdfgentounicode\input{glyphtounicode}\pdfgentounicode=1\fi
+\pagestyle{empty}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{10pt}
+\raggedright
+\hypersetup{pdftitle={Sebastien Barbier - Cover Letter},pdfauthor={Sébastien Barbier}}
+
+% =============================================================================
+% EDIT THESE FOR EACH APPLICATION (demo values below are for the public sample)
+% =============================================================================
+\newcommand{\LetterDate}{27 February 2026}
+\newcommand{\Company}{Example AG}
+\newcommand{\Recipient}{Engineering Hiring Team}
+\newcommand{\CompanyAddress}{Bahnhofstrasse 1}
+\newcommand{\CompanyCity}{8001 Zurich}
+\newcommand{\Role}{Senior Frontend Engineer}
+\newcommand{\Greeting}{Dear Hiring Team,}
+
+\begin{document}
+{\LARGE\scshape Sébastien Barbier}\\[3pt]
+{\small Senior Software Engineer}\\[6pt]
+{\small Zurich, Switzerland\\
+\href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}}
+
+\vspace{14pt}
+\textbf{\Company}\\
+\Recipient\\
+\CompanyAddress\\
+\CompanyCity
+
+\vspace{4pt}
+\hfill Zurich, \LetterDate
+
+\vspace{6pt}
+\textbf{Application for \Role}
+
+\vspace{4pt}
+\Greeting
+
+% OPENING: why this company / role
+I am applying for the \Role{} position at \Company. I am drawn to product-focused engineering teams that treat frontend architecture as a first-class concern, and I am looking for a role where I can contribute both hands-on implementation and technical direction. My background combines frontend leadership, distributed systems, and end-to-end product development.
+
+% EVIDENCE: most relevant experience for this offer
+At Unique, I led frontend engineering for an agentic AI chat platform in financial services, using RAG and MCP to support context-aware, compliant client interactions. Previously at SAP, I helped design a distributed extensibility protocol for secure third-party integrations and supported Field Service Management's migration to a microfrontend architecture. These experiences map well to roles that need strong React expertise, system design judgment, and clear collaboration with product and platform teams.
+
+% PERSONAL FIT: one project or story tailored to the company
+Alongside these roles, I have built and operated independent products end to end, including Shellui, an open-source microfrontend shell, and Seven23, a privacy-focused budgeting app. That habit of owning architecture through delivery is what I would bring to \Company{} as a \Role.
+
+I would welcome the opportunity to discuss how my experience could support your frontend and platform goals. Thank you for considering my application.
+
+\vspace{4pt}
+Kind regards,\\[20pt]
+\textbf{Sébastien Barbier}
+
+\end{document}

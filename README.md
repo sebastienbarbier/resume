@@ -1,14 +1,34 @@
-# Sébastien Barbier - Resume
+# Sébastien Barbier - Resume & Cover Letter
 
-Source for my resume as a Software Engineer based in Zurich.
+LaTeX source for my resume and a cover-letter template I rewrite for each job offer.
 
-**[Download PDF](./resume.pdf)** · [sebastienbarbier.com](https://sebastienbarbier.com) · [contact@sebastienbarbier.com](mailto:contact@sebastienbarbier.com)
+**[Resume PDF](./resume.pdf)** · **[Cover letter PDF](./cover-letter.pdf)** · [sebastienbarbier.com](https://sebastienbarbier.com) · [contact@sebastienbarbier.com](mailto:contact@sebastienbarbier.com)
 
-This repository is the source of truth: LaTeX you can read, fork, or rebuild yourself.
+---
+
+## Per-application workflow
+
+1. Edit [`resume.tex`](./resume.tex) if the role needs a different emphasis.
+2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the three body paragraphs.
+3. Build:
+
+```bash
+make
+```
+
+That refreshes `resume.pdf` and `cover-letter.pdf`. Optional README preview images:
+
+```bash
+make previews
+```
+
+The cover letter in this repo is a **demo** (Example AG / Senior Frontend Engineer). Replace those placeholders before sending anything.
 
 ---
 
 ## Preview
+
+### Resume
 
 <p align="center">
   <a href="./resume.pdf">
@@ -22,54 +42,59 @@ This repository is the source of truth: LaTeX you can read, fork, or rebuild you
   </a>
 </p>
 
+### Cover letter
+
+<p align="center">
+  <a href="./cover-letter.pdf">
+    <img src="./assets/cover-letter.png" alt="Cover letter preview" width="720" />
+  </a>
+</p>
+
 ---
 
 ## What’s inside
 
 | File | Role |
 |------|------|
-| [`resume.pdf`](./resume.pdf) | Built resume (2 pages, A4) |
-| [`resume.tex`](./resume.tex) | Full resume content and layout |
-| [`Makefile`](./Makefile) | One-command PDF build |
+| [`resume.tex`](./resume.tex) / [`resume.pdf`](./resume.pdf) | Resume source and built PDF |
+| [`cover-letter.tex`](./cover-letter.tex) / [`cover-letter.pdf`](./cover-letter.pdf) | Cover letter template and demo PDF |
+| [`assets/`](./assets/) | PNG previews for GitHub |
+| [`Makefile`](./Makefile) | `make`, `make resume`, `make cover-letter`, `make previews` |
 | [`LICENSE`](./LICENSE) | MIT |
-
-Sections cover experience, projects ([Shellui](https://shellui.com), [Seven23](https://seven23.io)), skills, education, and languages.
 
 ---
 
-## Build the PDF
+## Build
 
 You need `pdflatex`, or [Docker](https://www.docker.com/) (uses `texlive/texlive`).
 
 ```bash
-make
-```
-
-That refreshes `resume.pdf`. Aux files only:
-
-```bash
-make clean
+make                 # both PDFs
+make resume          # resume.pdf only
+make cover-letter    # cover-letter.pdf only
+make previews        # refresh assets/*.png
+make clean           # aux files only
 ```
 
 Or compile directly:
 
 ```bash
-pdflatex resume.tex
-pdflatex resume.tex   # second pass for stable links/refs
+pdflatex resume.tex && pdflatex resume.tex
+pdflatex cover-letter.tex && pdflatex cover-letter.tex
 ```
 
 ---
 
 ## Layout notes
 
-- **Paper:** A4, tight margins, compact item spacing so two pages stay dense but readable.
-- **Template:** Adapted from [Jake Gutierrez's resume](https://github.com/jakegut/resume) (MIT), which was inspired by [sb2nov/resume](https://github.com/sb2nov/resume).
+- **Paper:** A4. Resume uses tight margins; cover letter uses a classic letter layout that matches the resume typography.
+- **Template:** Resume adapted from [Jake Gutierrez's resume](https://github.com/jakegut/resume) (MIT), inspired by [sb2nov/resume](https://github.com/sb2nov/resume).
 - **PDF metadata:** Title and author set for search and ATS scanners.
 
-Feel free to reuse the structure for your own resume - keep the MIT attribution if you ship a derivative of the template.
+Feel free to reuse the structure - keep the MIT attribution if you ship a derivative of the resume template.
 
 ---
 
 ## License
 
-MIT © Sébastien Barbier. Layout adapted from [jakegut/resume](https://github.com/jakegut/resume) by Jake Gutierrez (MIT), itself based on [sb2nov/resume](https://github.com/sb2nov/resume).
+MIT © Sébastien Barbier. Resume layout adapted from [jakegut/resume](https://github.com/jakegut/resume) by Jake Gutierrez (MIT), itself based on [sb2nov/resume](https://github.com/sb2nov/resume).
