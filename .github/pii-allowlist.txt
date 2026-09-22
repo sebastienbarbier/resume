@@ -1,0 +1,5 @@
+# Substrings that are allowed even if they match phone/address heuristics.
+# One entry per line. Lines starting with # are ignored.
+# Keep this list small: only intentional public demo placeholders.
+
+Bahnhofstrasse 1

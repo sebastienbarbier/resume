@@ -1,0 +1,19 @@
+name: Privacy check
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pii:
+    name: No phone or street address
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Scan for phone numbers and street addresses
+        run: bash scripts/check-pii.sh

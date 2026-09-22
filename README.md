@@ -24,6 +24,12 @@ make previews
 
 The cover letter in this repo is a **demo** (Example AG / Senior Frontend Engineer). Replace those placeholders before sending anything.
 
+A GitHub Action ([`.github/workflows/privacy-check.yml`](./.github/workflows/privacy-check.yml)) fails the build if a phone number or street address is committed. Intentional demo placeholders go in [`.github/pii-allowlist.txt`](./.github/pii-allowlist.txt). Run the same check locally with:
+
+```bash
+bash scripts/check-pii.sh
+```
+
 ---
 
 ## Preview
