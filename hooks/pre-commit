@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# Shared git hook. Enable once in this clone:
+#   git config core.hooksPath hooks
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+exec bash "$ROOT/scripts/check-pii.sh"
