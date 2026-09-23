@@ -6,6 +6,32 @@ LaTeX source for my resume and a cover-letter template I rewrite for each job of
 
 ---
 
+## Preview
+
+### Resume
+
+<p align="center">
+  <a href="./resume.pdf">
+    <img src="./assets/page-1.png" alt="Resume page 1" width="720" />
+  </a>
+</p>
+
+<p align="center">
+  <a href="./resume.pdf">
+    <img src="./assets/page-2.png" alt="Resume page 2" width="720" />
+  </a>
+</p>
+
+### Cover letter
+
+<p align="center">
+  <a href="./cover-letter.pdf">
+    <img src="./assets/cover-letter.png" alt="Cover letter preview" width="720" />
+  </a>
+</p>
+
+---
+
 ## Per-application workflow
 
 1. Edit [`resume.tex`](./resume.tex) if the role needs a different emphasis.
@@ -39,32 +65,6 @@ git config core.hooksPath hooks
 ```
 
 That points Git at [`hooks/pre-commit`](./hooks/pre-commit), which runs the privacy scan before every commit.
-
----
-
-## Preview
-
-### Resume
-
-<p align="center">
-  <a href="./resume.pdf">
-    <img src="./assets/page-1.png" alt="Resume page 1" width="720" />
-  </a>
-</p>
-
-<p align="center">
-  <a href="./resume.pdf">
-    <img src="./assets/page-2.png" alt="Resume page 2" width="720" />
-  </a>
-</p>
-
-### Cover letter
-
-<p align="center">
-  <a href="./cover-letter.pdf">
-    <img src="./assets/cover-letter.png" alt="Cover letter preview" width="720" />
-  </a>
-</p>
 
 ---
 
