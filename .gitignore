@@ -21,6 +21,9 @@
 !resume.pdf
 !cover-letter.pdf
 
+# Per-application copies (contain phone number)
+applications/
+
 # Editor / OS
 .DS_Store
 *.swp
