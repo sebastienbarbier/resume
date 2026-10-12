@@ -1,0 +1,75 @@
+# AGENTS.md
+
+Instructions for AI agents generating or editing resumes in this repo. The candidate lives and applies in Switzerland, so follow Swiss CV conventions below unless the user says otherwise.
+
+## Candidate facts (source of truth)
+
+Use these exactly. Never invent dates, numbers, employers, titles, levels, or technologies. If a fact is missing, ask the user instead of guessing.
+
+| Field         | Value                                                                    |
+| ------------- | ------------------------------------------------------------------------ |
+| Name          | Sébastien Barbier                                                        |
+| Date of birth | 31 January 1988 (shown without a "Born" label)                           |
+| Location      | 8005 Zürich, Switzerland                                                 |
+| Nationality   | French (shown as "French nationality")                                   |
+| Work permit   | B permit (EU/EFTA)                                                       |
+| Email         | contact@sebastienbarbier.com                                             |
+| Website       | sebastienbarbier.com                                                     |
+| Phone         | Only in `applications/` copies; use the placeholder `+41~xx~xxx~xx~xx` in the root `resume.tex` |
+| Languages     | French: native, English: fluent (no CEFR level), German: B1              |
+
+Decided by the user, do not add: photo, interests, availability or notice period, mention of work certificates.
+
+Product name: always write `Shellui` (never ShellUI). Shellui is the current role (2026 to present) and should open the experience section.
+
+Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a project or in a bullet. For the 2021 to 2023 self-employed role, mention FromEdwin.com only.
+
+## Swiss CV conventions
+
+1. **Personal details in the header**: name, target title, email, phone, website, then one line with postcode and city, date of birth, nationality, and work permit. Swiss recruiters expect date of birth, nationality and permit; the permit tells them no visa sponsorship is needed.
+2. **Length and format**: A4, two pages maximum, reverse chronological, `Mon YYYY -- Mon YYYY` dates.
+3. **No unexplained gaps**: every period since 2009 is covered by a role, self-employment, or project. Gaps longer than three months need a one-line explanation.
+4. **Languages with levels**: CEFR (A1 to C2) where known, otherwise native or fluent, exactly as in the facts table. German level matters for German-speaking Switzerland, so keep it visible.
+5. **Facts over hype**: Swiss readers value precision and an understated tone. Prefer concrete scope, numbers, and outcomes; avoid words like "passionate", "rockstar", or "world-class".
+6. **Soft skills section**: four or five short lines, each backed by evidence from the experience section (who, where, what). No unbacked adjectives.
+7. **Education**: degree, field, institution, country, and year. Keep foreign degree names clear (for example "Master's in Computer Science").
+8. **References**: end with "References available on request." Never list referee names or contacts without explicit consent, and do not mention Swiss work certificates (Arbeitszeugnisse).
+9. **Language of the CV**: match the job ad (English, German, or French). In German versions use Swiss spelling (`ss`, never `ß`) and `DD.MM.YYYY` dates.
+10. **Leave out**: salary expectations, reasons for leaving, religion, marital status, and anything not relevant to the role. No photo, interests, or availability line (user's choice).
+11. **Spelling of places**: use local names (`Zürich`) and company legal forms (`AG`, `GmbH`).
+
+## Writing style
+
+- No long blocks of text: the summary is at most three lines, and any text longer than two lines becomes separate bullets.
+- Bullets: one idea each, ideally one line, never more than two. Prefer several short bullets over one long one.
+- At most five bullets per role, fewer for older roles.
+- Bold only job-relevant keywords, sparingly (a few per section).
+- Older roles (before 2014) go in "Earlier Experience" with one bullet each.
+
+## Tailoring for a job offer
+
+1. Create `applications/YYYY-MM-DD-company/` (git-ignored) and copy `resume.tex` into it.
+2. Extract keywords from the job ad (stack, responsibilities, soft skills) and make them visible in the title, summary, bullets, and skills, but only where they are true.
+3. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
+4. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
+5. List keywords from the ad that could not be covered honestly, so the user can decide.
+
+## Build and verify
+
+- Build with `make` (pdflatex), or `make docker TEX=resume.tex` when pdflatex is missing (start Docker Desktop first). For an application folder: `make -f ../../Makefile docker TEX=resume.tex CURDIR=$(pwd)`.
+- Render previews with `docker run --rm -v "$(pwd):/workdir" -w /workdir minidocks/poppler pdftoppm -png -r 80 resume.pdf preview`, then check them visually.
+- Verify: exactly two pages, no orphaned headings, no overfull lines, `scripts/check-page-fill.sh <pdf>` passes, and `bash scripts/check-pii.sh` passes.
+- Delete preview images and LaTeX aux files afterwards.
+
+## Page fill (strict)
+
+- **No blank at the end of any page.** The last line of page 1 and page 2 must end within 15pt (about one line, 5 mm) of the bottom margin.
+- This is a hard gate: run `scripts/check-page-fill.sh <pdf>` after every build. It must print `ok` for every page. Never hand over a PDF while it reports `BLANK AT END`; keep adjusting content until it passes.
+- Fill with content, never with spacing: keep the preamble's fixed spacing and do not add `\vspace`, `\vfill`, stretchable glue, or extra line spacing to pad a page.
+- Balance first by moving whole roles across the `\newpage` (never split a role), then add or trim short, true bullets until each page is full.
+- Use the full width too: every bullet or skill line either fits on one line or fills its second line by at least half. No last line holding only one or two words; reword until it fits.
+
+## Privacy
+
+- The root `resume.tex` and `resume.pdf` are public: no phone number and no street address there. `scripts/check-pii.sh` (also the pre-commit hook and CI) enforces this.
+- Postcode and city, date of birth, and permit are fine in the public resume.
