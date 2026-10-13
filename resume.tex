@@ -41,6 +41,7 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
+\usepackage{lastpage}
 \usepackage[english]{babel}
 \usepackage{tabularx}
 \ifdefined\pdfgentounicode\input{glyphtounicode}\fi
@@ -60,11 +61,20 @@
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\fancyfoot[R]{\small\thepage\ / 2}
+\fancyhead[L]{\small\scshape Sébastien Barbier}
+\fancyhead[R]{\small Staff Software Engineer $|$ Founder of Shellui}
+\fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\fancypagestyle{firstpage}{
+  \fancyhf{}
+  \fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
+  \renewcommand{\headrulewidth}{0pt}
+  \renewcommand{\footrulewidth}{0pt}
+}
 
 \usepackage[a4paper,margin=1.65cm,footskip=20pt]{geometry}
+\setlength{\headheight}{12pt}
 \urlstyle{same}
 
 \raggedbottom
@@ -124,48 +134,45 @@
 
 \setlist[itemize]{itemsep=3pt,topsep=4pt,parsep=0pt}
 \titlespacing*{\section}{0pt}{12pt}{9pt}
-\hypersetup{pdftitle={Sébastien Barbier - Senior Software Engineer},pdfauthor={Sébastien Barbier}}
+\hypersetup{pdftitle={Sébastien Barbier - Staff Software Engineer},pdfauthor={Sébastien Barbier}}
 \begin{document}
+\thispagestyle{firstpage}
 \begin{center}
 {\Huge\scshape Sébastien Barbier}\\[3pt]
-{\large Senior Software Engineer}\quad $|$\quad Full-Stack Product Development \& Frontend Architecture\\[5pt]
+{\large Staff Software Engineer}\quad $|$\quad Founder of Shellui\\[5pt]
 \href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ +41~xx~xxx~xx~xx $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
 8005 Zürich, Switzerland $|$ 31 January 1988 $|$ French nationality $|$ B permit (EU/EFTA)
 \end{center}
 \vspace{-3pt}
-Senior software engineer with 16+ years of experience, taking products from first idea to production.\\
-Former Staff Frontend Engineer at Unique (agentic AI) and Associate Development Architect at SAP.\\
+Staff-level software engineer with 16+ years of experience shipping products from first idea to production.\\
+Led SAP FSM's microfrontend migration; now builds Shellui, an open-source microfrontend shell.\\
 Core stack: React, TypeScript, Python and Django.
 
 \section{Professional Experience}\resumeSubHeadingListStart
 \resumeSubheading{Founder \& Full-Stack Engineer}{2026 -- Present}{Shellui, open-source web app platform (\href{https://shellui.com}{shellui.com})}{Zürich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{Built end to end: React/TypeScript apps, Python/Django REST APIs and a CLI.}
-\resumeItem{Shared sign-in across apps with OAuth, SAML SSO, magic links or Supabase Auth.}
-\resumeItem{Event-driven backend: signed webhooks, Celery jobs, multi-tenant PostgreSQL, S3 storage.}
-\resumeItem{Admin panel for members, email, webhooks and company access; file storage with share links.}
-\resumeItem{1,000+ tests and CI/CD on every pull request; ships as a web app or a Tauri desktop app.}
+\resumeItem{Shipped end to end: React/TypeScript apps, Python/Django REST APIs and a CLI.}
+\resumeItem{Implemented shared sign-in with OAuth, SAML SSO, magic links and Supabase Auth across apps.}
+\resumeItem{Built event-driven APIs: signed webhooks, Celery jobs, multi-tenant PostgreSQL and S3 storage.}
+\resumeItem{Delivered admin panel for members, email, webhooks and company access; shareable file storage.}
+\resumeItem{Maintained 1,000+ tests and CI/CD on every pull request; ships as web app or Tauri desktop.}
 \resumeItemListEnd
 \resumeSubheading{Staff Frontend Engineer}{Dec 2023 -- Dec 2025}{Unique AG}{Zürich, Switzerland / Remote}
 \resumeItemListStart
 \resumeItem{Led frontend engineering for an agentic AI chat platform serving financial services.}
-\resumeItem{Turned complex AI capabilities into a clear, simple chat experience.}
-\resumeItem{Worked with product, design and backend teams on RAG and MCP integrations.}
+\resumeItem{Integrated RAG and MCP for context-aware, compliant client interactions in production chat flows.}
+\resumeItem{Partnered with product, design and backend teams on delivery and release quality.}
 \resumeItemListEnd
 \resumeSubheading{Full-stack Software Engineer}{Aug 2021 -- Nov 2023}{Self-employed}{Zürich, Switzerland / Remote}
 \resumeItemListStart
 \resumeItem{Built and ran my own web products, including FromEdwin.com, from product idea to delivery.}
-\resumeItem{Owned architecture, frontend, backend, infrastructure and CI/CD as a solo founder.}
+\resumeItem{Owned architecture, frontend, backend, infrastructure, observability and CI/CD as a solo founder.}
 \resumeItemListEnd
-\resumeSubheading{Associate Development Architect}{Nov 2020 -- Jul 2021}{SAP}{Zürich, Switzerland / Remote}
+\resumeSubheading{SAP}{Feb 2020 -- Jul 2021}{Field Service Management (FSM); promoted to Associate Development Architect}{Zürich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{Co-designed the Field Service Management (FSM) protocol for secure third-party integrations.}
-\resumeItem{Led architecture decisions and mentored developers.}
-\resumeItemListEnd
-\resumeSubheading{Senior Developer / Technical Lead}{Feb 2020 -- Oct 2020}{SAP}{Zürich, Switzerland / Remote}
-\resumeItemListStart
-\resumeItem{Technical lead on FSM's move to microfrontends, aligning several teams on shared foundations.}
-\resumeItem{Contributed to the modernization and scalability of the FSM application.}
+\resumeItem{Led FSM's move to microfrontends as Technical Lead, aligning several teams on shared foundations.}
+\resumeItem{Co-designed the FSM integration protocol after promotion to Associate Development Architect.}
+\resumeItem{Mentored developers and drove architecture decisions across the FSM organization.}
 \resumeItemListEnd
 \resumeSubheading{Web Technologies Consultant and Freelancer}{Sep 2016 -- Jan 2020}{Self-employed}{Chiang Mai, Thailand / Remote}
 \resumeItemListStart
@@ -180,8 +187,6 @@ Core stack: React, TypeScript, Python and Django.
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 
-\newpage
-\noindent {\large\scshape Sébastien Barbier}\hfill\small Senior Software Engineer\normalsize
 \section{Earlier Experience}\resumeSubHeadingListStart
 \resumeSubheading{Java Developer}{Sep 2012 -- Jun 2014}{Covalia}{Besançon, France}
 \resumeItemListStart
@@ -191,7 +196,7 @@ Core stack: React, TypeScript, Python and Django.
 \resumeSubheading{Part-time Lecturer}{Sep 2011 and Sep 2012}{University of Franche-Comté}{Besançon, France}
 \resumeItemListStart
 \resumeItem{Taught 98 hours of practical Java and HTML/CSS to third-year engineering students.}
-\resumeItem{Two five-month contracts at ISIFC and UFR ST.}
+\resumeItem{Two five-month contracts at ISIFC and UFR ST, University of Franche-Comté.}
 \resumeItemListEnd
 \resumeSubheading{Co-founder and Full-stack Developer}{Jul 2009 -- Jun 2012}{Ionyse}{Besançon, France}
 \resumeItemListStart
@@ -207,16 +212,17 @@ Core stack: React, TypeScript, Python and Django.
 TypeScript, JavaScript, React, Next.js, Angular, Tailwind CSS, PWA, accessibility, UX/UI.
 
 \textbf{Backend \& Architecture}\\
-Python, Django, FastAPI, Java, REST APIs, SSO, Celery, microfrontends.
+Python, Django, Java, REST APIs, SSO, Celery, PostgreSQL and Supabase.\\
+Microfrontend architecture and multi-tenant SaaS backend design.
 
 \textbf{Delivery \& AI}\\
-CI/CD, Docker, Cypress, unit and E2E testing, Prometheus, Grafana, LLMs, RAG, MCP.
+CI/CD, Docker, automated unit and E2E testing, LLMs, RAG and MCP integrations.
 
 \textbf{Tools \& Ops}\\
-Git, GitHub Actions, Sentry, Loki, Linux server administration.
+Git, GitHub Actions, Sentry, Linux server administration, Tauri desktop builds.
 
 \textbf{Domains}\\
-Financial services, healthcare (HL7, DICOM, ISO 13485), enterprise SaaS, open source.
+Financial services, healthcare (HL7, DICOM, ISO 13485), enterprise SaaS, open source, microfrontend platforms.
 \par\endgroup
 
 \section{Soft Skills}
@@ -228,9 +234,9 @@ Financial services, healthcare (HL7, DICOM, ISO 13485), enterprise SaaS, open so
 
 \textbf{Mentoring:} mentored developers at SAP and taught 98 hours of programming at university.
 
-\textbf{Remote \& international:} four years with clients worldwide; at ease in multilingual teams.
+\textbf{Remote \& international:} four years with clients worldwide; comfortable in distributed, multilingual teams.
 
-\textbf{Pragmatism \& quality:} simple solutions shipped in small steps, backed by tests and documentation.
+\textbf{Pragmatism \& quality:} simple, well-tested solutions shipped in small steps with clear documentation.
 \par\endgroup
 
 \section{Education}
@@ -248,6 +254,5 @@ IUT of Belfort, France
 \section{Languages}
 French: Native $|$ English: Fluent $|$ German: B1
 
-\vspace{8pt}
 \textit{References available on request.}
 \end{document}
