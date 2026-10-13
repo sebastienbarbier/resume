@@ -35,7 +35,7 @@ LaTeX source for my resume and a cover-letter template I rewrite for each job of
 ## Per-application workflow
 
 1. Edit [`resume.tex`](./resume.tex) if the role needs a different emphasis.
-2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the three body paragraphs.
+2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the four **AIDA** body paragraphs (see [`AGENTS.md`](./AGENTS.md)).
 3. Build:
 
 ```bash
@@ -48,7 +48,7 @@ That refreshes `resume.pdf` and `cover-letter.pdf`. Optional README preview imag
 make previews
 ```
 
-The cover letter in this repo is a **demo** (Example AG / Senior Frontend Engineer). Replace those placeholders before sending anything.
+The cover letter in this repo is a **demo** (Example AG / Senior Frontend Engineer) structured as **AIDA** (Attention, Interest, Desire, Action). Replace company fields, `\JobAdHook`, and the four body paragraphs before sending anything; see [`AGENTS.md`](./AGENTS.md).
 
 A GitHub Action ([`.github/workflows/privacy-check.yml`](./.github/workflows/privacy-check.yml)) fails the build if a phone number or street address is committed. Intentional demo placeholders go in [`.github/pii-allowlist.txt`](./.github/pii-allowlist.txt).
 

@@ -54,6 +54,19 @@ Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a
 4. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
 5. List keywords from the ad that could not be covered honestly, so the user can decide.
 
+## Cover letters (AIDA)
+
+Every generated cover letter must follow the **AIDA** structure below. Use the language of the job ad (English, German, or French). **One A4 page maximum.** Tone: sober and professional, Swiss-style precision; no sales language, clichés, or hype (for example avoid "passionate", "thrilled", or "perfect fit"). **Never use em or en dashes as punctuation** in prose; use commas, colons, or full stops. Job titles and `Shellui` spelling rules still apply. Never mention Seven23. Use only facts from the resume and job ad; if a hook needs company detail you do not have, ask the user instead of inventing it.
+
+| Step | Purpose |
+| ---- | ------- |
+| **Attention** | Open with a **specific, factual hook** tied to the company or role (a concrete detail from the ad, product, stack, or scope). Not a generic "I am applying for…" opener. |
+| **Interest** | The **most relevant experience** for this posting: role, employer, technologies, and outcomes that match the ad. |
+| **Desire** | **Concrete proof of value** Sébastien would bring this employer, using **only real facts** from the resume (scope, systems shipped, leadership, domain). |
+| **Action** | A **clear, confident close** that asks for a conversation (interview or call). No pressure tactics or availability deadlines unless the user supplies them. |
+
+For each application, copy [`cover-letter.tex`](./cover-letter.tex) into the application folder (or edit the copy there), set the header fields, and replace the four AIDA body paragraphs. The root `cover-letter.tex` is the public demo; keep it on one page when rebuilt.
+
 ## Build and verify
 
 - Build with `make` (pdflatex), or `make docker TEX=resume.tex` when pdflatex is missing (start Docker Desktop first). For an application folder: `make -f ../../Makefile docker TEX=resume.tex CURDIR=$(pwd)`.
