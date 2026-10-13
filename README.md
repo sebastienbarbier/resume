@@ -48,7 +48,7 @@ That refreshes `resume.pdf` and `cover-letter.pdf`. Optional README preview imag
 make previews
 ```
 
-The cover letter in this repo is a **demo** (Example AG / Senior Frontend Engineer). Replace those placeholders before sending anything.
+The cover letter in this repo is a **demo** (Example AG / Senior Frontend Engineer) structured as **AIDA** (Attention, Interest, Desire, Action). Replace company fields, `\JobAdHook`, and the four body paragraphs before sending anything; see [`AGENTS.md`](./AGENTS.md).
 
 A GitHub Action ([`.github/workflows/privacy-check.yml`](./.github/workflows/privacy-check.yml)) fails the build if a phone number or street address is committed. Intentional demo placeholders go in [`.github/pii-allowlist.txt`](./.github/pii-allowlist.txt).
 
