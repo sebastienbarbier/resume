@@ -35,7 +35,7 @@ LaTeX source for my resume and a cover-letter template I rewrite for each job of
 ## Per-application workflow
 
 1. Edit [`resume.tex`](./resume.tex) if the role needs a different emphasis.
-2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the three body paragraphs.
+2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the four **AIDA** body paragraphs (see [`AGENTS.md`](./AGENTS.md)).
 3. Build:
 
 ```bash

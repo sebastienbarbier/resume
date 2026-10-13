@@ -1,5 +1,5 @@
 % Cover letter companion to resume.tex (Jake Gutierrez / sb2nov style).
-% Workflow: edit the fields below and the three body paragraphs for each job offer.
+% Workflow: edit the fields below and the four AIDA body paragraphs for each job offer.
 % Compile: make cover-letter   (or: make)
 \documentclass[a4paper,11pt]{article}
 \usepackage[T1]{fontenc}
@@ -14,7 +14,7 @@
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{10pt}
 \raggedright
-\hypersetup{pdftitle={Sebastien Barbier - Cover Letter},pdfauthor={Sébastien Barbier}}
+\hypersetup{pdftitle={Sébastien Barbier - Cover Letter},pdfauthor={Sébastien Barbier}}
 
 % =============================================================================
 % EDIT THESE FOR EACH APPLICATION (demo values below are for the public sample)
@@ -29,7 +29,7 @@
 
 \begin{document}
 {\LARGE\scshape Sébastien Barbier}\\[3pt]
-{\small Senior Software Engineer}\\[6pt]
+{\small Staff Software Engineer}\\[6pt]
 {\small Zurich, Switzerland\\
 \href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}}
 
@@ -48,16 +48,17 @@
 \vspace{4pt}
 \Greeting
 
-% OPENING: why this company / role
-I am applying for the \Role{} position at \Company. I am drawn to product-focused engineering teams that treat frontend architecture as a first-class concern, and I am looking for a role where I can contribute both hands-on implementation and technical direction. My background combines frontend leadership, distributed systems, and end-to-end product development.
+% ATTENTION: specific, factual hook tied to company or role (no clichés)
+Your \Role{} opening at \Company{} focuses on React, frontend architecture, and close work with product and platform teams in Zurich. That combination is what prompted me to apply.
 
-% EVIDENCE: most relevant experience for this offer
-At Unique, I led frontend engineering for an agentic AI chat platform in financial services, using RAG and MCP to support context-aware, compliant client interactions. Previously at SAP, I helped design a distributed extensibility protocol for secure third-party integrations and supported Field Service Management's migration to a microfrontend architecture. These experiences map well to roles that need strong React expertise, system design judgment, and clear collaboration with product and platform teams.
+% INTEREST: most relevant experience for this posting
+At Unique AG I led frontend engineering for an agentic AI chat platform in financial services, with RAG and MCP integrations for context-aware, compliant client interactions. At SAP I was technical lead on Field Service Management's move to microfrontends and, after promotion to Associate Development Architect, co-designed the FSM protocol for secure third-party integrations.
 
-% PERSONAL FIT: one project or story tailored to the company
-Alongside these roles, I have built and operated independent products end to end, most recently Shellui, an open-source web app platform. That habit of owning architecture through delivery is what I would bring to \Company{} as a \Role.
+% DESIRE: concrete value from real resume facts only
+I would bring the same end-to-end ownership to \Company{}: shipping React and TypeScript UIs, aligning teams on shared frontend foundations, and delivering with tests and CI/CD. I am currently building Shellui, an opinionated microfrontend shell (TypeScript, React, Django), and previously took FromEdwin.com from idea to production as a solo founder.
 
-I would welcome the opportunity to discuss how my experience could support your frontend and platform goals. Thank you for considering my application.
+% ACTION: clear, confident close
+I would welcome a conversation about how this background can support your \Role{} goals at \Company{}. Thank you for considering my application.
 
 \vspace{4pt}
 Kind regards,\\[20pt]
