@@ -62,7 +62,7 @@
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyhead[L]{\small\scshape Sébastien Barbier}
-\fancyhead[R]{\small Staff Software Engineer $|$ Founder of Shellui}
+\fancyhead[R]{\small Staff Software Engineer $|$ TypeScript, React, Python}
 \fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -139,40 +139,47 @@
 \thispagestyle{firstpage}
 \begin{center}
 {\Huge\scshape Sébastien Barbier}\\[3pt]
-{\large Staff Software Engineer}\quad $|$\quad Founder of Shellui\\[5pt]
+{\large Staff Software Engineer}\quad $|$\quad Full-Stack: TypeScript, React, Python\\[5pt]
 \href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ +41~xx~xxx~xx~xx $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
 8005 Zürich, Switzerland $|$ 31 January 1988 $|$ French nationality $|$ B permit (EU/EFTA)
 \end{center}
 \vspace{-3pt}
 Staff-level software engineer with 16+ years of experience shipping products from first idea to production.\\
-Led SAP FSM's microfrontend migration; now builds Shellui, an opinionated microfrontend shell.\\
-Core stack: TypeScript, React and Django.
+Led frontend for an agentic AI platform at Unique AG and SAP FSM's move to microfrontends.\\
+Currently building Shellui (TypeScript, React, Python/Django) and improving my German beyond B1.
+
+\section{Personal Project}\resumeSubHeadingListStart
+\resumeSubheading{Full-Stack Developer}{Jan 2026 -- Oct 2026}{Shellui (\href{https://shellui.com}{shellui.com}): open-source microfrontend shell}{Zürich, Switzerland}
+\resumeItemListStart
+\resumeItem{Built a React/TypeScript microfrontend shell and CLI that gives apps one navigation and theme.}
+\resumeItem{Unified sign-in across apps with OAuth, SAML SSO, magic links and Supabase Auth.}
+\resumeItem{Designed multi-tenant PostgreSQL schemas in Django services, isolating each tenant's data.}
+\resumeItem{Built signed webhooks and Celery jobs with retries and an outbox, so failed deliveries are retried.}
+\resumeItem{Protected every release with 1,000+ tests and CI/CD on each pull request (web and Tauri).}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
 
 \section{Professional Experience}\resumeSubHeadingListStart
-\resumeSubheading{Founder \& Full-Stack Engineer}{2026 -- Present}{Shellui (\href{https://shellui.com}{shellui.com}): opinionated microfrontend shell}{Zürich, Switzerland / Remote}
-\resumeItemListStart
-\resumeItem{Build the app, not the infrastructure: React/TypeScript frontends, Django APIs and a CLI.}
-\resumeItem{Implemented shared sign-in with OAuth, SAML SSO, magic links and Supabase Auth across apps.}
-\resumeItem{Built event-driven APIs: signed webhooks, Celery jobs, multi-tenant PostgreSQL and S3 storage.}
-\resumeItem{Delivered admin panel for members, email, webhooks and company access; shareable file storage.}
-\resumeItem{Maintained 1,000+ tests and CI/CD on every pull request; ships as web app or Tauri desktop.}
-\resumeItemListEnd
 \resumeSubheading{Staff Frontend Engineer}{Dec 2023 -- Dec 2025}{Unique AG}{Zürich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{Led frontend engineering for an agentic AI chat platform serving financial services.}
-\resumeItem{Integrated RAG and MCP for context-aware, compliant client interactions in production chat flows.}
-\resumeItem{Partnered with product, design and backend teams on delivery and release quality.}
+\resumeItem{Led frontend for an agentic AI chat platform used by financial services clients.}
+\resumeItem{Streamed LLM answers live in the UI, with structured outputs and tool calling in production.}
+\resumeItem{Integrated RAG and MCP into the chat flows, so answers use client context and stay compliant.}
+\resumeItem{Partnered with product, design and backend teams on delivery, keeping release quality high.}
 \resumeItemListEnd
-\resumeSubheading{Full-stack Software Engineer}{Aug 2021 -- Nov 2023}{Self-employed}{Zürich, Switzerland / Remote}
+\resumeSubheading{Liquidity Provider, Decentralized Finance (DeFi)}{Aug 2021 -- Nov 2023}{Private investor (own capital)}{Zürich, Switzerland}
 \resumeItemListStart
-\resumeItem{Built and ran my own web products, including FromEdwin.com, from product idea to delivery.}
-\resumeItem{Owned architecture, frontend, backend, infrastructure, observability and CI/CD as a solo founder.}
+\resumeItem{Provided liquidity to on-chain DeFi AMM pools, fully funding my living costs for 2+ years.}
+\resumeItem{In parallel, maintained Seven23, an open-source, end-to-end encrypted budget app (React, Redux, Django REST Framework, Docker), with 170+ GitHub stars across its repositories.}
+\resumeItem{Built FromEdwin.com as a learning project on asynchronous performance metrics, owning architecture, backend, observability and CI/CD.}
 \resumeItemListEnd
-\resumeSubheading{SAP}{Feb 2020 -- Jul 2021}{Field Service Management (FSM); promoted to Associate Development Architect}{Zürich, Switzerland / Remote}
+\resumeSubheading{Associate Development Architect}{Feb 2020 -- Jul 2021}{SAP (Schweiz) AG, FSM; promoted from Technical Lead}{Zürich, Switzerland / Remote}
 \resumeItemListStart
-\resumeItem{Led FSM's move to microfrontends as Technical Lead, aligning several teams on shared foundations.}
-\resumeItem{Co-designed the FSM integration protocol after promotion to Associate Development Architect.}
-\resumeItem{Mentored developers and drove architecture decisions across the FSM organization.}
+\resumeItem{As Technical Lead, moved FSM to microfrontends, aligning several teams on one architecture.}
+\resumeItem{Co-designed the FSM extensibility concept for secure third-party integrations, driving partner adoption with code samples and public webinars.}
+\resumeItem{Prepared management decisions on FSM's target architecture by assessing risks and effort.}
+\resumeItem{Designed, coded and tested complex FSM features, and helped others resolve complex issues.}
+\resumeItem{Mentored junior developers and coached the team on architecture, simplicity and best practices.}
 \resumeItemListEnd
 \resumeSubheading{Web Technologies Consultant and Freelancer}{Sep 2016 -- Jan 2020}{Self-employed}{Chiang Mai, Thailand / Remote}
 \resumeItemListStart
@@ -190,18 +197,15 @@ Core stack: TypeScript, React and Django.
 \section{Earlier Experience}\resumeSubHeadingListStart
 \resumeSubheading{Java Developer}{Sep 2012 -- Jun 2014}{Covalia}{Besançon, France}
 \resumeItemListStart
-\resumeItem{Maintained Java libraries and real-time HL7/DICOM exchange for a telemedicine platform.}
-\resumeItem{Supported deployments and customers in an ISO 13485 regulated environment.}
+\resumeItem{Maintained Java HL7/DICOM exchange for a telemedicine platform under ISO 13485.}
 \resumeItemListEnd
 \resumeSubheading{Part-time Lecturer}{Sep 2011 and Sep 2012}{University of Franche-Comté}{Besançon, France}
 \resumeItemListStart
 \resumeItem{Taught 98 hours of practical Java and HTML/CSS to third-year engineering students.}
-\resumeItem{Two five-month contracts at ISIFC and UFR ST, University of Franche-Comté.}
 \resumeItemListEnd
 \resumeSubheading{Co-founder and Full-stack Developer}{Jul 2009 -- Jun 2012}{Ionyse}{Besançon, France}
 \resumeItemListStart
 \resumeItem{Co-founded a web agency during my master's, building client websites on a Python/Django CMS.}
-\resumeItem{Built pixel-perfect interfaces with HTML5, CSS3 and jQuery.}
 \resumeItemListEnd
 \resumeSubHeadingListEnd
 
@@ -210,40 +214,37 @@ Core stack: TypeScript, React and Django.
 \setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\fontsize{10.5}{13}\selectfont
 \textbf{Frontend}\\
 TypeScript, JavaScript, React, Next.js, Angular, Tailwind CSS, PWA, accessibility, UX/UI.\\
-Microfrontends, streaming chat interfaces, React Native (Notes by Firefox).
+Microfrontends, Redux, MUI, D3, streaming chat interfaces, React Native.
 
 \textbf{Backend \& Architecture}\\
-Python, Django, Java, REST APIs, SSO, Celery, PostgreSQL and Supabase.\\
-Microfrontend architecture and multi-tenant SaaS backend design.\\
-Event-driven services: signed webhooks, background jobs with retries, Redis.
+Python, Django REST Framework, Java, REST APIs, OpenAPI, SSO, Celery, PostgreSQL, Supabase.\\
+Multi-tenant SaaS, microfrontends, event-driven services, signed webhooks, retries, Redis.
 
-\textbf{Delivery \& Quality}\\
-CI/CD, Docker, Cypress, automated unit and E2E testing, Prometheus and Grafana.
+\textbf{Delivery \& Ops}\\
+CI/CD, GitHub Actions, Docker, Cypress, unit and E2E testing, Sentry, Prometheus, Grafana.\\
+Git, Linux server administration, Tauri desktop builds.
 
 \textbf{AI}\\
 Agentic AI, LLMs, streaming responses, structured outputs, tool calling, RAG and MCP.\\
 AI-assisted engineering with AI coding agents as part of the daily workflow.
 
-\textbf{Tools \& Ops}\\
-Git, GitHub Actions, Sentry, Linux server administration, Tauri desktop builds.
-
 \textbf{Domains}\\
 Financial services, healthcare (HL7, DICOM, ISO 13485), enterprise SaaS, open source.\\
-Field service management (SAP), telemedicine (Covalia), microfrontend platforms.
+Field service management (SAP), telemedicine (Covalia), decentralized finance (DeFi).
 \par\endgroup
 
 \section{Soft Skills}
 \begingroup
 \setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\fontsize{10.5}{13}\selectfont
-\textbf{Ownership:} took Shellui and FromEdwin.com from idea to production as a solo founder.
+\textbf{Ownership:} built Shellui and Seven23 end to end, from architecture and UI to CI/CD and hosting.
 
 \textbf{Collaboration:} aligned several SAP teams on microfrontends; partnered with product and design at Unique.
 
-\textbf{Mentoring:} mentored developers at SAP and taught 98 hours of programming at university.
+\textbf{Mentoring:} mentored junior developers at SAP and taught 98 hours of programming at university.
 
-\textbf{Remote \& international:} four years with clients worldwide; comfortable in distributed, multilingual teams.
+\textbf{Communication:} presented the FSM extensibility concept to SAP partners in public webinars.
 
-\textbf{Pragmatism \& quality:} simple, well-tested solutions shipped in small steps with clear documentation.
+\textbf{Pragmatism \& quality:} simple, well-tested solutions shipped in small steps, backed by 1,000+ tests.
 \par\endgroup
 
 \section{Education}

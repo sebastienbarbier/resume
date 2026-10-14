@@ -21,14 +21,28 @@ Use these exactly. Never invent dates, numbers, employers, titles, levels, or te
 
 Decided by the user, do not add: photo, interests, availability or notice period, mention of work certificates, a "References available on request" line.
 
-Product name: always write `Shellui` (never ShellUI). Shellui is the current role (2026 to present) and should open the experience section.
+Product name: always write `Shellui` (never ShellUI). Shellui is a **personal project** (started Jan 2026, ongoing), not a job: show it in a "Personal Project" section (plural once there are several) with the title "Full-Stack Developer". Never use the word "Founder" for Shellui, in the header, the page header, bullets, or cover letters.
 
-Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a project or in a bullet. For the 2021 to 2023 self-employed role, mention FromEdwin.com only.
+From Aug 2021 to Nov 2023, Sébastien was a **liquidity provider in crypto**, investing his own capital. Show it as "Liquidity Provider, Decentralized Finance (DeFi)" with the organisation line "Private investor (own capital)", never "Self-employed" (it was private asset management, not a registered business). Activity: on-chain DeFi AMM pools, which fully funded his living costs for over two years (no protocol names, no custom tooling claimed). In parallel, Sébastien worked on personal projects, which may be mentioned:
+
+- **Seven23** (seven23.io, since 2011): open-source, end-to-end encrypted, fully manual budget app. Web app in React, Redux, MUI, D3 and Workbox (offline-first, runs without an account); backend on Django and Django REST Framework with Swagger/Redoc API docs, Docker images and GitHub Actions CI. 112 + 59 GitHub stars (170+ across both repositories).
+- **FromEdwin.com**: learning project on asynchronous performance metrics; stopped and no longer online. Do not describe it as a live product.
+
+SAP: employer legal name is **SAP (Schweiz) AG**, department Field Service Management (FSM) Self-Service & Platform Extensibility, Feb 2020 to Jul 2021, last title Associate Development Architect (earlier Technical Lead). Details come from `references/`.
+
+## Reference documents
+
+`references/` holds private source documents (work certificates, contracts, job descriptions, project notes). Read them before writing or rewriting experience: they are the preferred source for scope, technologies, and results, together with the facts above. Rules:
+
+- Never quote or name the documents in the resume (no mention of work certificates), and never copy referee names or contact details.
+- The folder is git-ignored and must never be pushed. `scripts/check-pii.sh` (pre-commit hook and CI) fails if any file under `references/` or `applications/` is tracked.
+- If a fact is not in `references/`, the facts above, or the root `resume.tex`, ask the user.
 
 ## Swiss CV conventions
 
 1. **Personal details in the header**: name, target title, email, phone, website, then one line with postcode and city, date of birth, nationality, and work permit. Swiss recruiters expect date of birth, nationality and permit; the permit tells them no visa sponsorship is needed.
 2. **Length and format**: A4, two pages maximum, reverse chronological, `Mon YYYY -- Mon YYYY` dates.
+   - **Never write "Present"** (or "today", "now") as an end date, for experience and projects alike: ATS parsers handle a real date better. Use the current month and year on the day the PDF is generated (for example `Jan 2026 -- Oct 2026`), and update it on every rebuild, in the root resume and in application copies.
 3. **No unexplained gaps**: every period since 2009 is covered by a role, self-employment, or project. Gaps longer than three months need a one-line explanation.
 4. **Languages with levels**: CEFR (A1 to C2) where known, otherwise native or fluent, exactly as in the facts table. German level matters for German-speaking Switzerland, so keep it visible.
 5. **Facts over hype**: Swiss readers value precision and an understated tone. Prefer concrete scope, numbers, and outcomes; avoid words like "passionate", "rockstar", or "world-class".
@@ -43,6 +57,7 @@ Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a
 
 - No long blocks of text: the summary is at most three lines, and any text longer than two lines becomes separate bullets.
 - Bullets: one idea each, ideally one line, never more than two. Prefer several short bullets over one long one.
+- **What, how, result:** every experience and project bullet is one sentence that says what was done, how (with concrete technical terms: languages, frameworks, protocols, tools), and the result (scope, outcome, or number). Example: "Built durable background jobs (what) on Celery and Redis with retries and a transactional outbox (how), so no webhook is lost on failure (result)." Results must come from real facts (`references/`, facts above, root `resume.tex`); if no result is known, ask the user rather than inventing one.
 - At most five bullets per role, fewer for older roles.
 - Bold only job-relevant keywords, sparingly (a few per section).
 - Older roles (before 2014) go in "Earlier Experience" with one bullet each.
@@ -101,7 +116,7 @@ Add a subsection **Line manager view:** what a hiring manager will skim first (t
 2. Rebuild PDF; re-run page fill and PII checks.
 3. Re-run steps 2 to 4 and record the new match score.
 
-**Strict rule:** never add a skill, keyword, or claim that is not backed by real facts in the **master resume data** (this file’s candidate facts table, root `resume.tex`, and existing true bullets). Do not invent employers, metrics, or tools.
+**Strict rule:** never add a skill, keyword, or claim that is not backed by real facts in the **master resume data** (this file’s candidate facts table, documents in `references/`, root `resume.tex`, and existing true bullets). Do not invent employers, metrics, or tools.
 
 Stop when:
 
@@ -126,7 +141,7 @@ Do not commit application reports; they stay under git-ignored `applications/`. 
 
 ## Cover letters (AIDA)
 
-Every generated cover letter must follow the **AIDA** structure below. Use the language of the job ad (English, German, or French). **One A4 page maximum.** Tone: sober and professional, Swiss-style precision; no sales language, clichés, or hype (for example avoid "passionate", "thrilled", or "perfect fit"). **Never use em or en dashes as punctuation** in prose; use commas, colons, or full stops. Job titles and `Shellui` spelling rules still apply. Never mention Seven23. Use only facts from the resume and job ad; if a hook needs company detail you do not have, ask the user instead of inventing it.
+Every generated cover letter must follow the **AIDA** structure below. Use the language of the job ad (English, German, or French). **One A4 page maximum.** Tone: sober and professional, Swiss-style precision; no sales language, clichés, or hype (for example avoid "passionate", "thrilled", or "perfect fit"). **Never use em or en dashes as punctuation** in prose; use commas, colons, or full stops. Job titles and `Shellui` rules (spelling, personal project, no "Founder") still apply. Use only facts from the resume and job ad; if a hook needs company detail you do not have, ask the user instead of inventing it.
 
 | Step | Purpose |
 | ---- | ------- |
@@ -156,3 +171,4 @@ For each application, copy [`cover-letter.tex`](./cover-letter.tex) into the app
 
 - The root `resume.tex` and `resume.pdf` are public: no phone number and no street address there. `scripts/check-pii.sh` (also the pre-commit hook and CI) enforces this.
 - Postcode and city, date of birth, and permit are fine in the public resume.
+- `references/` and `applications/` are private and git-ignored; the privacy check fails if anything under them is tracked.

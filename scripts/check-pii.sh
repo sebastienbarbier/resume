@@ -13,6 +13,18 @@ trap 'rm -f "$TMP_HITS" "$FILTERED" "${TMP_HITS}.raw"' EXIT
 
 : >"$TMP_HITS"
 
+PRIVATE_DIRS=(references applications)
+TRACKED_PRIVATE="$(git ls-files -- "${PRIVATE_DIRS[@]}")"
+if [[ -n "$TRACKED_PRIVATE" ]]; then
+  echo "::error::Privacy check failed: private folders must never be committed (${PRIVATE_DIRS[*]})."
+  echo
+  echo "Tracked or staged files:"
+  printf '%s\n' "$TRACKED_PRIVATE"
+  echo
+  echo "Unstage them with: git rm -r --cached -- ${PRIVATE_DIRS[*]}"
+  exit 1
+fi
+
 scan_text() {
   local file="$1"
   local kind="$2"

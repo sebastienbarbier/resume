@@ -25,6 +25,9 @@
 # Per-application copies (contain phone number)
 applications/
 
+# Private source documents (work certificates, contracts, job descriptions)
+references/
+
 # Editor / OS
 .DS_Store
 *.swp
