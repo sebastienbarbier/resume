@@ -34,15 +34,17 @@ LaTeX source for my resume and a cover-letter template I rewrite for each job of
 
 ## Per-application workflow
 
-1. Edit [`resume.tex`](./resume.tex) if the role needs a different emphasis.
-2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the four **AIDA** body paragraphs (see [`AGENTS.md`](./AGENTS.md)).
-3. Build:
+1. Create `applications/YYYY-MM-DD-company/`, copy [`resume.tex`](./resume.tex), [`ats-report.tex`](./ats-report.tex), and [`cover-letter.tex`](./cover-letter.tex) if needed, then tailor for the job ad (see [`AGENTS.md`](./AGENTS.md)).
+2. Build the application PDFs (`make -f ../../Makefile` from that folder, or copy the root `Makefile` workflow).
+3. Run the **ATS and HR check** from [`AGENTS.md`](./AGENTS.md): fill [`ats-report.tex`](./ats-report.tex) (copy from repo root), classify keywords with coloured **MATCH / PARTIAL MATCH / MISSING** rows, iterate up to 3 rounds, then build **`ats-report.pdf`** (`make -f ../../Makefile ats-report` in the application folder).
+4. For the public repo demo only: edit root [`cover-letter.tex`](./cover-letter.tex) fields and four **AIDA** paragraphs when not using an application folder.
+5. Build public PDFs when needed:
 
 ```bash
 make
 ```
 
-That refreshes `resume.pdf` and `cover-letter.pdf`. Optional README preview images:
+That refreshes root `resume.pdf` and `cover-letter.pdf`. Optional README preview images:
 
 ```bash
 make previews
@@ -75,7 +77,8 @@ That points Git at [`hooks/pre-commit`](./hooks/pre-commit), which runs the priv
 | [`resume.tex`](./resume.tex) / [`resume.pdf`](./resume.pdf) | Resume source and built PDF |
 | [`cover-letter.tex`](./cover-letter.tex) / [`cover-letter.pdf`](./cover-letter.pdf) | Cover letter template and demo PDF |
 | [`assets/`](./assets/) | PNG previews for GitHub |
-| [`Makefile`](./Makefile) | `make`, `make resume`, `make cover-letter`, `make previews` |
+| [`ats-report.tex`](./ats-report.tex) / [`ats-report.pdf`](./ats-report.pdf) | ATS/HR check template (copy per application; demo PDF) |
+| [`Makefile`](./Makefile) | `make`, `make resume`, `make cover-letter`, `make ats-report`, `make previews` |
 | [`LICENSE`](./LICENSE) | MIT |
 
 ---
@@ -85,9 +88,10 @@ That points Git at [`hooks/pre-commit`](./hooks/pre-commit), which runs the priv
 You need `pdflatex`, or [Docker](https://www.docker.com/) (uses `texlive/texlive`).
 
 ```bash
-make                 # both PDFs
+make                 # resume.pdf and cover-letter.pdf
 make resume          # resume.pdf only
 make cover-letter    # cover-letter.pdf only
+make ats-report      # ats-report.pdf (demo template at repo root)
 make previews        # refresh assets/*.png
 make clean           # aux files only
 ```
@@ -97,6 +101,7 @@ Or compile directly:
 ```bash
 pdflatex resume.tex && pdflatex resume.tex
 pdflatex cover-letter.tex && pdflatex cover-letter.tex
+pdflatex ats-report.tex && pdflatex ats-report.tex
 ```
 
 ---

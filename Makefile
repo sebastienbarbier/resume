@@ -1,9 +1,11 @@
-.PHONY: build resume cover-letter previews clean watch docker
+.PHONY: build resume cover-letter ats-report previews clean watch docker
 
 RESUME_TEX = resume.tex
 COVER_TEX = cover-letter.tex
+ATS_TEX = ats-report.tex
 RESUME_PDF = resume.pdf
 COVER_PDF = cover-letter.pdf
+ATS_PDF = ats-report.pdf
 
 build: resume cover-letter
 
@@ -11,11 +13,16 @@ resume: $(RESUME_PDF)
 
 cover-letter: $(COVER_PDF)
 
+ats-report: $(ATS_PDF)
+
 $(RESUME_PDF): $(RESUME_TEX)
 	@$(MAKE) compile TEX=$(RESUME_TEX)
 
 $(COVER_PDF): $(COVER_TEX)
 	@$(MAKE) compile TEX=$(COVER_TEX)
+
+$(ATS_PDF): $(ATS_TEX)
+	@$(MAKE) compile TEX=$(ATS_TEX)
 
 compile:
 	@if command -v pdflatex >/dev/null 2>&1; then \
@@ -51,4 +58,4 @@ watch:
 	latexmk -pdf -pvc $(RESUME_TEX)
 
 clean:
-	rm -f *.aux *.log *.out *.toc *.fls *.fdb_latexmk *.synctex.gz
+	rm -f *.aux *.log *.out *.toc *.fls *.fdb_latexmk *.synctex.gz ats-report.aux ats-report.log ats-report.out
