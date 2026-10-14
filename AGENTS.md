@@ -48,12 +48,12 @@ Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a
 
 ## Tailoring for a job offer
 
-1. Create `applications/YYYY-MM-DD-company/` (git-ignored) and copy `resume.tex` into it.
+1. Create `applications/YYYY-MM-DD-company/` (git-ignored) and copy `resume.tex` and [`ats-report.tex`](./ats-report.tex) into it.
 2. Extract keywords from the job ad (stack, responsibilities, soft skills) and make them visible in the title, summary, bullets, and skills, but only where they are true.
 3. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
 4. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
 5. List keywords from the ad that could not be covered honestly, so the user can decide.
-6. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Save the report as `ats-report.md` in the same application folder.
+6. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Fill in `ats-report.tex` and build **`ats-report.pdf`** in the same application folder (`make -f ../../Makefile ats-report` from that folder).
 
 ## ATS and HR check
 
@@ -71,19 +71,19 @@ From the job spec, list all relevant terms, grouped as needed:
 
 ### 2. Classify each keyword against the CV
 
-For every extracted keyword, check the generated CV (LaTeX/PDF text) and assign **one emoji only** (no colour names in the report):
+For every extracted keyword, check the generated CV (LaTeX/PDF text) and assign **one status** (shown in the PDF with a **coloured row** and in the legend; **no emoji** in the report):
 
-| Emoji | Meaning |
-| ----- | ------- |
-| 🟩 | **MATCH:** keyword clearly present (same term or unambiguous equivalent in context) |
-| 🟨 | **PARTIAL MATCH:** implied by experience but not explicitly stated; ATS may miss it |
-| 🟥 | **MISSING:** important in the ad but absent or not supportable from master data |
+| Status | Meaning | PDF row colour |
+| ------ | ------- | -------------- |
+| **MATCH** | Keyword clearly present (same term or unambiguous equivalent in context) | Green background |
+| **PARTIAL MATCH** | Implied by experience but not explicitly stated; ATS may miss it | Yellow background |
+| **MISSING** | Important in the ad but absent or not supportable from master data | Red background |
 
-Present keywords in a table or list with emoji, keyword, and a one-line note (where on the CV, or why partial/missing).
+In `ats-report.tex`, add one row per keyword using `\MatchRow{keyword}{notes}`, `\PartialRow{keyword}{notes}`, or `\MissingRow{keyword}{notes}`. The template includes a visual legend with coloured boxes.
 
 ### 3. Score and verdict
 
-- **Match score:** percent of keywords that are 🟩 (state numerator and denominator; treat 🟨 as half weight optional, but always report 🟩-only percent as the primary score).
+- **Match score:** percent of keywords that are **MATCH** (state numerator and denominator; optional half weight for PARTIAL MATCH, but always report MATCH-only percent as the primary score in `\RoundOneScore`, `\RoundTwoScore`, `\RoundThreeScore`).
 - **ATS screening verdict:** pass / borderline / fail, with one short paragraph (parseability, exact terms, title alignment, length).
 - **HR check verdict:** pass / borderline / fail, with one short paragraph (Swiss expectations, clarity, permit/nationality visible if relevant, gaps, tone).
 
@@ -93,7 +93,7 @@ Add a subsection **Line manager view:** what a hiring manager will skim first (t
 
 ### 5. Iterate (up to 3 rounds)
 
-1. Improve the tailored CV to turn 🟨 and honest 🟥 into 🟩 (title, summary, bullets, skills only).
+1. Improve the tailored CV to turn PARTIAL MATCH and honest MISSING rows into MATCH (title, summary, bullets, skills only).
 2. Rebuild PDF; re-run page fill and PII checks.
 3. Re-run steps 2 to 4 and record the new match score.
 
@@ -104,51 +104,21 @@ Stop when:
 - No further honest gains, or
 - **3 rounds** completed.
 
-Keywords that remain 🟥 or 🟨 after iteration go under **Gaps to address in interview** (brief bullet each: what to say with evidence from real experience, without adding them to the CV as false claims).
+Keywords that remain MISSING or PARTIAL MATCH after iteration go under **Gaps to address in interview** in the template (brief bullet each: what to say with evidence from real experience, without adding them to the CV as false claims).
 
-### 6. Save `ats-report.md`
+### 6. Save `ats-report.pdf`
 
-Write or overwrite `applications/YYYY-MM-DD-company/ats-report.md` on every run. Include:
+On every run, overwrite the application copy of **`ats-report.tex`** and rebuild **`ats-report.pdf`** (root template: [`ats-report.tex`](./ats-report.tex), `make ats-report`). The PDF must include:
 
-- Job title, company, date of report, language of CV
-- Keyword table with emoji classifications
+- Job title, company, date of report, language of CV (header macros)
+- **Legend** with green, yellow, and red boxes (MATCH, PARTIAL MATCH, MISSING)
+- Keyword table with **real background colours** per row
 - **Score per round** (Round 1, Round 2, Round 3) so progress is visible
-- Final ATS and HR verdicts and **Line manager view**
+- Final **ATS** and **HR** verdicts and **Line manager view**
 - **Gaps to address in interview**
-- Optional: keywords from the ad that were deliberately not added (with reason)
+- Optional: keywords from the ad that were deliberately not added (with reason), in notes or gaps section
 
-Suggested skeleton:
-
-```markdown
-# ATS and HR report
-
-- Company:
-- Role:
-- CV file:
-- Report date:
-- Round:
-
-## Keyword match
-
-| Keyword | Status | Notes |
-| ...
-
-## Scores
-
-| Round | Match % | Notes |
-| 1 | | |
-| 2 | | |
-| 3 | | |
-
-## Verdicts
-
-### ATS
-### HR
-
-## Line manager view
-
-## Gaps to address in interview
-```
+Do not commit application reports; they stay under git-ignored `applications/`. The root `ats-report.tex` may keep demo placeholder content for agents to copy.
 
 ## Cover letters (AIDA)
 

@@ -1,0 +1,137 @@
+% ATS and HR check report (companion to resume.tex). Copy into applications/ and edit.
+% Compile: make ats-report   (or: make -f ../../Makefile ats-report)
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[a4paper,left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage[english]{babel}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{colortbl}
+\ifdefined\pdfgentounicode\input{glyphtounicode}\pdfgentounicode=1\fi
+\pagestyle{empty}
+\urlstyle{same}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{8pt}
+\raggedright
+\hypersetup{pdftitle={ATS and HR Report},pdfauthor={Sébastien Barbier}}
+
+\definecolor{atsmatchbg}{RGB}{198,239,206}
+\definecolor{atspartialbg}{RGB}{255,242,179}
+\definecolor{atsmissingbg}{RGB}{255,199,199}
+\definecolor{atslegendborder}{RGB}{120,120,120}
+
+\newcommand{\LegendBox}[2]{%
+  \fcolorbox{atslegendborder}{#1}{\parbox[c][0.42cm][c]{1.1cm}{\rule{0pt}{0.42cm}}}%
+  \hspace{0.25em}{\small #2}%
+}
+
+\newcommand{\KeywordRow}[3]{%
+  #1 & #2 & #3 \\%
+}
+
+\newcommand{\MatchRow}[2]{\KeywordRow{\cellcolor{atsmatchbg} MATCH}{#1}{#2}}
+\newcommand{\PartialRow}[2]{\KeywordRow{\cellcolor{atspartialbg} PARTIAL MATCH}{#1}{#2}}
+\newcommand{\MissingRow}[2]{\KeywordRow{\cellcolor{atsmissingbg} MISSING}{#1}{#2}}
+
+% =============================================================================
+% EDIT FOR EACH APPLICATION (demo values: Example AG)
+% =============================================================================
+\newcommand{\ReportCompany}{Example AG}
+\newcommand{\ReportRole}{Senior Frontend Engineer}
+\newcommand{\ReportCvFile}{sebastien\_barbier\_resume.pdf}
+\newcommand{\ReportDate}{27 February 2026}
+\newcommand{\ReportCvLanguage}{English}
+\newcommand{\ReportFinalRound}{2}
+
+\newcommand{\RoundOneScore}{62\%}
+\newcommand{\RoundOneNote}{First pass before skills line update}
+\newcommand{\RoundTwoScore}{78\%}
+\newcommand{\RoundTwoNote}{Added explicit React and microfrontend terms}
+\newcommand{\RoundThreeScore}{n/a}
+\newcommand{\RoundThreeNote}{Not required; stopped after round 2}
+
+\newcommand{\AtsVerdict}{Borderline pass}
+\newcommand{\AtsVerdictText}{CV is two pages, text-selectable, and title matches senior frontend scope. Several ad terms appear only once; partial rows may score low in strict ATS parsers.}
+
+\newcommand{\HrVerdict}{Pass}
+\newcommand{\HrVerdictText}{Swiss header includes permit and languages. Experience is recent and relevant; tone is factual. Minor gap on one ad keyword documented below.}
+
+\newcommand{\LineManagerView}{%
+A hiring manager will skim Staff-level Shellui work, Unique financial services frontend, and SAP microfrontend lead first. Top concerns: verify depth on any stack listed only as partial match, and confirm German on the job if the team is Zürich German-speaking.%
+}
+
+\newcommand{\GapsInterview}{%
+\begin{itemize}[leftmargin=*,itemsep=3pt,topsep=2pt]
+\item \textbf{Example keyword not on CV:} If the ad requires a tool not in master data, explain adjacent experience in interview only; do not add to the CV without proof.
+\end{itemize}%
+}
+
+\begin{document}
+{\LARGE\bfseries ATS and HR report}\\[2pt]
+{\large\scshape Sébastien Barbier}\\[6pt]
+{\small
+\textbf{Company:} \ReportCompany\\
+\textbf{Role:} \ReportRole\\
+\textbf{CV file:} \ReportCvFile\\
+\textbf{Report date:} \ReportDate\\
+\textbf{CV language:} \ReportCvLanguage\\
+\textbf{Final round:} \ReportFinalRound
+}
+
+\vspace{6pt}
+\textbf{Legend}\\[-2pt]
+\LegendBox{atsmatchbg}{MATCH: keyword clearly present on the CV}\\
+\LegendBox{atspartialbg}{PARTIAL MATCH: implied but not explicit}\\
+\LegendBox{atsmissingbg}{MISSING: important in the ad but absent or not supportable}
+
+\vspace{4pt}
+\textbf{Match score by round}\\[-2pt]
+\renewcommand{\arraystretch}{1.15}
+\begin{tabularx}{\textwidth}{|c|c|X|}
+\hline
+\textbf{Round} & \textbf{Match \%} & \textbf{Notes} \\
+\hline
+1 & \RoundOneScore & \RoundOneNote \\
+2 & \RoundTwoScore & \RoundTwoNote \\
+3 & \RoundThreeScore & \RoundThreeNote \\
+\hline
+\end{tabularx}
+
+\vspace{4pt}
+\textbf{Keyword match (final round)}\\[-2pt]
+\small
+\begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}p{2.6cm}|>{\raggedright\arraybackslash}p{3.2cm}|X|}
+\hline
+\textbf{Status} & \textbf{Keyword} & \textbf{Notes} \\
+\hline
+\MatchRow{React}{Shellui and Unique bullets; skills section}
+\MatchRow{TypeScript}{Summary, Shellui, skills}
+\MatchRow{Microfrontends}{Summary, SAP bullet, skills}
+\PartialRow{GraphQL}{Not named; REST APIs only on CV}
+\MissingRow{Vue.js}{Required in demo ad; not in master experience}
+\hline
+\end{tabularx}
+\normalsize
+
+\vspace{4pt}
+\textbf{ATS screening verdict:} \AtsVerdict\\
+\AtsVerdictText
+
+\vspace{2pt}
+\textbf{HR check verdict:} \HrVerdict\\
+\HrVerdictText
+
+\vspace{2pt}
+\textbf{Line manager view}\\
+\LineManagerView
+
+\vspace{2pt}
+\textbf{Gaps to address in interview}\\
+\GapsInterview
+
+\end{document}

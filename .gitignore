@@ -20,6 +20,7 @@
 *.pdf
 !resume.pdf
 !cover-letter.pdf
+!ats-report.pdf
 
 # Per-application copies (contain phone number)
 applications/
