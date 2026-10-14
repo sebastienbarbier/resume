@@ -53,6 +53,102 @@ Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a
 3. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
 4. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
 5. List keywords from the ad that could not be covered honestly, so the user can decide.
+6. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Save the report as `ats-report.md` in the same application folder.
+
+## ATS and HR check
+
+Run this workflow **whenever a tailored CV is generated from a job offer** (application copy under `applications/YYYY-MM-DD-company/`). Act as an **HR and ATS expert for the Swiss labour market**. Use the job spec (and Swiss context: permit, languages, local titles, AG/GmbH employers). **Never use em or en dashes as punctuation** in the report; use commas, colons, or full stops.
+
+### 1. Extract keywords
+
+From the job spec, list all relevant terms, grouped as needed:
+
+- Hard skills and tools (languages, frameworks, cloud, methods)
+- Domain and product context (industry, compliance, customer type)
+- Seniority and role scope (lead, staff, architect, ownership)
+- Soft skills and ways of working (only if stated in the ad)
+- Languages and location or permit requirements
+
+### 2. Classify each keyword against the CV
+
+For every extracted keyword, check the generated CV (LaTeX/PDF text) and assign **one emoji only** (no colour names in the report):
+
+| Emoji | Meaning |
+| ----- | ------- |
+| 🟩 | **MATCH:** keyword clearly present (same term or unambiguous equivalent in context) |
+| 🟨 | **PARTIAL MATCH:** implied by experience but not explicitly stated; ATS may miss it |
+| 🟥 | **MISSING:** important in the ad but absent or not supportable from master data |
+
+Present keywords in a table or list with emoji, keyword, and a one-line note (where on the CV, or why partial/missing).
+
+### 3. Score and verdict
+
+- **Match score:** percent of keywords that are 🟩 (state numerator and denominator; treat 🟨 as half weight optional, but always report 🟩-only percent as the primary score).
+- **ATS screening verdict:** pass / borderline / fail, with one short paragraph (parseability, exact terms, title alignment, length).
+- **HR check verdict:** pass / borderline / fail, with one short paragraph (Swiss expectations, clarity, permit/nationality visible if relevant, gaps, tone).
+
+### 4. Line manager view
+
+Add a subsection **Line manager view:** what a hiring manager will skim first (title, last roles, stack proof), and **top concerns** (missing must-haves, weak proof, seniority mismatch, domain gap). Be direct and factual, not motivational.
+
+### 5. Iterate (up to 3 rounds)
+
+1. Improve the tailored CV to turn 🟨 and honest 🟥 into 🟩 (title, summary, bullets, skills only).
+2. Rebuild PDF; re-run page fill and PII checks.
+3. Re-run steps 2 to 4 and record the new match score.
+
+**Strict rule:** never add a skill, keyword, or claim that is not backed by real facts in the **master resume data** (this file’s candidate facts table, root `resume.tex`, and existing true bullets). Do not invent employers, metrics, or tools.
+
+Stop when:
+
+- No further honest gains, or
+- **3 rounds** completed.
+
+Keywords that remain 🟥 or 🟨 after iteration go under **Gaps to address in interview** (brief bullet each: what to say with evidence from real experience, without adding them to the CV as false claims).
+
+### 6. Save `ats-report.md`
+
+Write or overwrite `applications/YYYY-MM-DD-company/ats-report.md` on every run. Include:
+
+- Job title, company, date of report, language of CV
+- Keyword table with emoji classifications
+- **Score per round** (Round 1, Round 2, Round 3) so progress is visible
+- Final ATS and HR verdicts and **Line manager view**
+- **Gaps to address in interview**
+- Optional: keywords from the ad that were deliberately not added (with reason)
+
+Suggested skeleton:
+
+```markdown
+# ATS and HR report
+
+- Company:
+- Role:
+- CV file:
+- Report date:
+- Round:
+
+## Keyword match
+
+| Keyword | Status | Notes |
+| ...
+
+## Scores
+
+| Round | Match % | Notes |
+| 1 | | |
+| 2 | | |
+| 3 | | |
+
+## Verdicts
+
+### ATS
+### HR
+
+## Line manager view
+
+## Gaps to address in interview
+```
 
 ## Cover letters (AIDA)
 

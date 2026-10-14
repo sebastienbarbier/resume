@@ -34,15 +34,17 @@ LaTeX source for my resume and a cover-letter template I rewrite for each job of
 
 ## Per-application workflow
 
-1. Edit [`resume.tex`](./resume.tex) if the role needs a different emphasis.
-2. Edit the fields at the top of [`cover-letter.tex`](./cover-letter.tex) (company, role, date, greeting) and retarget the four **AIDA** body paragraphs (see [`AGENTS.md`](./AGENTS.md)).
-3. Build:
+1. Create `applications/YYYY-MM-DD-company/`, copy [`resume.tex`](./resume.tex) (and [`cover-letter.tex`](./cover-letter.tex) if needed), and tailor for the job ad (see [`AGENTS.md`](./AGENTS.md)).
+2. Build the application PDFs (`make -f ../../Makefile` from that folder, or copy the root `Makefile` workflow).
+3. Run the **ATS and HR check** from [`AGENTS.md`](./AGENTS.md): keyword match (🟩 🟨 🟥), score, verdicts, line manager view, up to 3 honest improvement rounds. Save **`ats-report.md`** next to the tailored files (git-ignored with `applications/`).
+4. For the public repo demo only: edit root [`cover-letter.tex`](./cover-letter.tex) fields and four **AIDA** paragraphs when not using an application folder.
+5. Build public PDFs when needed:
 
 ```bash
 make
 ```
 
-That refreshes `resume.pdf` and `cover-letter.pdf`. Optional README preview images:
+That refreshes root `resume.pdf` and `cover-letter.pdf`. Optional README preview images:
 
 ```bash
 make previews
