@@ -16,9 +16,10 @@ Use these exactly. Never invent dates, numbers, employers, titles, levels, or te
 | Email         | contact@sebastienbarbier.com                                             |
 | Website       | sebastienbarbier.com                                                     |
 | Phone         | Only in `applications/` copies; use the placeholder `+41~xx~xxx~xx~xx` in the root `resume.tex` |
-| Languages     | French: native, English: fluent (no CEFR level), German: B1              |
+| Languages     | French: native, English: fluent (no CEFR level), German: B1 (Goethe-Zertifikat B1, passed July 2026) |
+| Education     | Master's in Computer Science (2011) and Bachelor's in Computer Science (2009), University of Franche-Comté, France. The Erasmus year and HNC stay off the resume |
 
-Decided by the user, do not add: photo, interests, availability or notice period, mention of work certificates.
+Decided by the user, do not add: photo, interests, availability or notice period, mention of work certificates, a "References available on request" line.
 
 Product name: always write `Shellui` (never ShellUI). Shellui is the current role (2026 to present) and should open the experience section.
 
@@ -33,7 +34,7 @@ Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a
 5. **Facts over hype**: Swiss readers value precision and an understated tone. Prefer concrete scope, numbers, and outcomes; avoid words like "passionate", "rockstar", or "world-class".
 6. **Soft skills section**: four or five short lines, each backed by evidence from the experience section (who, where, what). No unbacked adjectives.
 7. **Education**: degree, field, institution, country, and year. Keep foreign degree names clear (for example "Master's in Computer Science").
-8. **References**: end with "References available on request." Never list referee names or contacts without explicit consent, and do not mention Swiss work certificates (Arbeitszeugnisse).
+8. **References**: no references line (user's choice). Never list referee names or contacts without explicit consent, and do not mention Swiss work certificates (Arbeitszeugnisse).
 9. **Language of the CV**: match the job ad (English, German, or French). In German versions use Swiss spelling (`ss`, never `ß`) and `DD.MM.YYYY` dates.
 10. **Leave out**: salary expectations, reasons for leaving, religion, marital status, and anything not relevant to the role. No photo, interests, or availability line (user's choice).
 11. **Spelling of places**: use local names (`Zürich`) and company legal forms (`AG`, `GmbH`).
@@ -49,11 +50,14 @@ Never mention Seven23 (or seven23.io) in a resume or cover letter, not even as a
 ## Tailoring for a job offer
 
 1. Create `applications/YYYY-MM-DD-company/` (git-ignored) and copy `resume.tex` and [`ats-report.tex`](./ats-report.tex) into it.
-2. Extract keywords from the job ad (stack, responsibilities, soft skills) and make them visible in the title, summary, bullets, and skills, but only where they are true.
-3. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
-4. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
-5. List keywords from the ad that could not be covered honestly, so the user can decide.
-6. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Fill in `ats-report.tex` and build **`ats-report.pdf`** in the same application folder (`make -f ../../Makefile ats-report` from that folder).
+2. Save the job description as **`job-offer.pdf`** in that folder, so the ad survives after the posting goes offline:
+   - **Link:** download the page content and save it as PDF (for example, headless Chrome `--print-to-pdf`, or fetch the text and use the text method below). Keep the source URL and the download date at the top. If the page needs a login or blocks the download, ask the user to paste the text.
+   - **Pasted text:** write it verbatim into `job-offer.tex` (company, job title, location, date saved, then the full ad, without rewording) and build it with `make -f ../../Makefile docker TEX=job-offer.tex CURDIR=$(pwd)`.
+3. Extract keywords from the job ad (stack, responsibilities, soft skills) and make them visible in the title, summary, bullets, and skills, but only where they are true.
+4. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
+5. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
+6. List keywords from the ad that could not be covered honestly, so the user can decide.
+7. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Fill in `ats-report.tex` and build **`ats-report.pdf`** in the same application folder (`make -f ../../Makefile ats-report` from that folder).
 
 ## ATS and HR check
 
