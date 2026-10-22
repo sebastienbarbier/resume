@@ -69,10 +69,23 @@ SAP: employer legal name is **SAP (Schweiz) AG**, department Field Service Manag
    - **Link:** download the page content and save it as PDF (for example, headless Chrome `--print-to-pdf`, or fetch the text and use the text method below). Keep the source URL and the download date at the top. If the page needs a login or blocks the download, ask the user to paste the text.
    - **Pasted text:** write it verbatim into `job-offer.tex` (company, job title, location, date saved, then the full ad, without rewording) and build it with `make -f ../../Makefile docker TEX=job-offer.tex CURDIR=$(pwd)`.
 3. Extract keywords from the job ad (stack, responsibilities, soft skills) and make them visible in the title, summary, bullets, and skills, but only where they are true.
-4. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
-5. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
-6. List keywords from the ad that could not be covered honestly, so the user can decide.
-7. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Fill in `ats-report.tex` and build **`ats-report.pdf`** in the same application folder (`make -f ../../Makefile ats-report` from that folder).
+4. Apply the **leadership principles lens** below (application copies and cover letters only; leave the root `resume.tex` generic).
+5. Follow any per-application instruction from the user (for example, hiding a project) without changing the root resume.
+6. Add the real phone number only in the application copy. Name the final PDF `sebastien_barbier_resume.pdf`.
+7. List keywords from the ad that could not be covered honestly, so the user can decide.
+8. After the tailored CV is built and verified (PDF, page fill, PII), run the **ATS and HR check** below before handoff. Fill in `ats-report.tex` and build **`ats-report.pdf`** in the same application folder (`make -f ../../Makefile ats-report` from that folder).
+
+## Leadership principles lens (tailored applications)
+
+Use [Amazon's 16 Leadership Principles](https://www.amazon.jobs/content/en/our-workplace/leadership-principles) as an internal framing tool for **application copies** and cover letters, not for the public root resume. Read the posting and infer seniority and scope, then choose **2 to 3** principles that best match what the role emphasises (for example ownership, deliver results, and dive deep for a senior IC; hire and develop the best for a lead or manager role). In the handoff or `ats-report.tex` notes, name the chosen principles and give one short sentence on why they fit this ad.
+
+**Evidence only:** show each principle through outcomes, decisions, and numbers from real work. Do not name Amazon or quote principle titles in the CV or cover letter unless Sébastien is applying to Amazon. Favour results over activity lists. Every claim must be backed by facts in `references/`, the candidate facts above, root `resume.tex`, or verifiable content on sebastienbarbier.com.
+
+**Missing evidence (hard stop):** once you have chosen principles for this application, if a principle you intend to use has no backing fact in those sources, **stop tailoring**. Do not substitute a different principle without telling Sébastien, and do not invent metrics, outcomes, or examples. Ask Sébastien one **specific** question (role, timeframe, decision, or number) that would let you support that principle honestly. Continue only after he answers or asks you to drop that principle.
+
+**Resume (application copy):** reflect the chosen principles in the About me summary, in the ordering and wording of experience bullets, and optionally in Soft skills as short working principles with one line of proof each (still evidence-backed).
+
+**Cover letter:** weave the same principles into the **Interest** and **Desire** AIDA paragraphs, one concrete example per principle.
 
 ## ATS and HR check
 
