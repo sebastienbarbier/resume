@@ -25,7 +25,7 @@ Product name: always write `Shellui` (never ShellUI). Shellui is a **personal pr
 
 From Aug 2021 to Nov 2023, Sébastien was a **liquidity provider in crypto**, investing his own capital. Show it as "Liquidity Provider, Decentralized Finance (DeFi)" with the organisation line "Private investor (own capital)", never "Self-employed" (it was private asset management, not a registered business). Activity: on-chain DeFi AMM pools, which fully funded his living costs for over two years (no protocol names, no custom tooling claimed). In parallel, Sébastien worked on personal projects, which may be mentioned:
 
-- **Seven23** (seven23.io, since 2011): open-source, end-to-end encrypted, fully manual budget app. Web app in React, Redux, MUI, D3 and Workbox (offline-first, runs without an account); backend on Django and Django REST Framework with Swagger/Redoc API docs, Docker images and GitHub Actions CI. 112 + 59 GitHub stars (170+ across both repositories).
+- **Seven23** (seven23.io, since 2011): open-source, end-to-end encrypted, fully manual budget app. Web app in React, Redux, MUI, D3 and Workbox (offline-first, runs without an account); backend on Django and Django REST Framework with Swagger/Redoc API docs, Docker images and GitHub Actions CI. 112 + 59 GitHub stars (170+ across both repositories). **Never list Seven23 on the root public `resume.tex`** (it remains on sebastienbarbier.com). Mention it in an application copy only if Sébastien asks.
 - **FromEdwin.com**: learning project on asynchronous performance metrics; stopped and no longer online. Do not describe it as a live product.
 
 SAP: employer legal name is **SAP (Schweiz) AG**, department Field Service Management (FSM) Self-Service & Platform Extensibility, Feb 2020 to Jul 2021, last title Associate Development Architect (earlier Technical Lead). Details come from `references/`.
@@ -61,6 +61,20 @@ SAP: employer legal name is **SAP (Schweiz) AG**, department Field Service Manag
 - At most five bullets per role, fewer for older roles.
 - Bold only job-relevant keywords, sparingly (a few per section).
 - Older roles (before 2014) go in "Earlier Experience" with one bullet each.
+
+## AI positioning
+
+Keep the public resume and tailored copies aligned with [sebastienbarbier.com](https://sebastienbarbier.com): **AI is the first group** in the Technical Skills section. Within that group, order terms as on the site: **Agentic AI**, then **Autonomous systems**, then LLMs, streaming responses, structured outputs, tool calling, RAG, MCP, and AI-assisted engineering (coding agents in the daily workflow).
+
+When tailoring or rewriting the About me summary, experience bullets, and cover letters (Interest and Desire in AIDA), **surface AI work prominently** where real facts support it, for example:
+
+- Agentic AI and autonomous systems (wording must match what Sébastien actually shipped)
+- LLM integrations, RAG, MCP, streaming chat UIs, and tool calling at **Unique AG**
+- AI skills and tooling used in delivery (only tools and practices backed by `references/`, root `resume.tex`, or the site)
+
+Do not invent AI scope, models, metrics, or employers. If a job ad or narrative needs AI evidence that is not in those sources, **ask Sébastien one specific question** before adding the claim. The root `resume.tex` stays broadly representative; application copies may reorder bullets or strengthen AI in the summary when the ad warrants it.
+
+If putting **AI** first makes the CV overflow to three pages, keep the group order but tighten the Technical Skills block (no extra blank lines between skill groups) and rebalance bullets before removing honest content. Always re-run `scripts/check-page-fill.sh` after layout changes.
 
 ## Tailoring for a job offer
 
