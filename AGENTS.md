@@ -182,6 +182,7 @@ For each application, copy [`cover-letter.tex`](./cover-letter.tex) into the app
 ## Build and verify
 
 - Build with `make` (pdflatex), or `make docker TEX=resume.tex` when pdflatex is missing (start Docker Desktop first). For an application folder: `make -f ../../Makefile docker TEX=resume.tex CURDIR=$(pwd)`.
+- **Web/public PDF:** `make public` builds **`resume-public.pdf`** via [`resume-public.tex`](./resume-public.tex) (`\def\publicresumevariant{1}` then `\input{resume.tex}`). That variant drops phone, postcode, date of birth, nationality, and work permit from the header and shows email, website, GitHub, and LinkedIn instead. Application copies keep the full Swiss header.
 - Render previews with `docker run --rm -v "$(pwd):/workdir" -w /workdir minidocks/poppler pdftoppm -png -r 80 resume.pdf preview`, then check them visually.
 - Verify: exactly two pages, no orphaned headings, no overfull lines, `scripts/check-page-fill.sh <pdf>` passes, and `bash scripts/check-pii.sh` passes.
 - Delete preview images and LaTeX aux files afterwards.
@@ -196,6 +197,7 @@ For each application, copy [`cover-letter.tex`](./cover-letter.tex) into the app
 
 ## Privacy
 
-- The root `resume.tex` and `resume.pdf` are public: no phone number and no street address there. `scripts/check-pii.sh` (also the pre-commit hook and CI) enforces this.
-- Postcode and city, date of birth, and permit are fine in the public resume.
+- The root `resume.tex` and `resume.pdf` are public in the repo: no real phone number and no street address. `scripts/check-pii.sh` (also the pre-commit hook and CI) enforces this.
+- **`resume-public.pdf`** (`make public`) is the web-safe variant: no phone, home address, date of birth, nationality, or permit. Use it on sebastienbarbier.com or anywhere you do not want Swiss personal-detail fields.
+- The standard **`resume.pdf`** (and application PDFs) keep postcode and city, date of birth, nationality, and permit for Swiss recruiters; only the real phone number belongs in git-ignored application copies.
 - `references/` and `applications/` are private and git-ignored; the privacy check fails if anything under them is tracked.

@@ -2,7 +2,7 @@
 
 LaTeX source for my resume and a cover-letter template I rewrite for each job offer.
 
-**[Resume PDF](./resume.pdf)** · **[Cover letter PDF](./cover-letter.pdf)** · [sebastienbarbier.com](https://sebastienbarbier.com) · [contact@sebastienbarbier.com](mailto:contact@sebastienbarbier.com)
+**[Resume PDF](./resume.pdf)** · **[Web resume PDF](./resume-public.pdf)** (no personal details) · **[Cover letter PDF](./cover-letter.pdf)** · [sebastienbarbier.com](https://sebastienbarbier.com) · [contact@sebastienbarbier.com](mailto:contact@sebastienbarbier.com)
 
 ---
 
@@ -42,6 +42,7 @@ LaTeX source for my resume and a cover-letter template I rewrite for each job of
 
 ```bash
 make
+make public          # resume-public.pdf for the website (same source, no DOB/permit/postcode/phone)
 ```
 
 That refreshes root `resume.pdf` and `cover-letter.pdf`. Optional README preview images:
@@ -74,7 +75,8 @@ That points Git at [`hooks/pre-commit`](./hooks/pre-commit), which runs the priv
 
 | File | Role |
 |------|------|
-| [`resume.tex`](./resume.tex) / [`resume.pdf`](./resume.pdf) | Resume source and built PDF |
+| [`resume.tex`](./resume.tex) / [`resume.pdf`](./resume.pdf) | Resume source and Swiss-style PDF |
+| [`resume-public.tex`](./resume-public.tex) / [`resume-public.pdf`](./resume-public.pdf) | Web variant from `make public` (no personal-detail header fields) |
 | [`cover-letter.tex`](./cover-letter.tex) / [`cover-letter.pdf`](./cover-letter.pdf) | Cover letter template and demo PDF |
 | [`assets/`](./assets/) | PNG previews for GitHub |
 | [`ats-report.tex`](./ats-report.tex) / [`ats-report.pdf`](./ats-report.pdf) | ATS/HR check template (copy per application; demo PDF) |
@@ -90,6 +92,7 @@ You need `pdflatex`, or [Docker](https://www.docker.com/) (uses `texlive/texlive
 ```bash
 make                 # resume.pdf and cover-letter.pdf
 make resume          # resume.pdf only
+make public          # resume-public.pdf only
 make cover-letter    # cover-letter.pdf only
 make ats-report      # ats-report.pdf (demo template at repo root)
 make previews        # refresh assets/*.png

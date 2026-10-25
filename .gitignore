@@ -19,6 +19,7 @@
 # Keep the published PDFs tracked; ignore other PDFs
 *.pdf
 !resume.pdf
+!resume-public.pdf
 !cover-letter.pdf
 !ats-report.pdf
 

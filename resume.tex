@@ -128,6 +128,13 @@
 \newcommand{\resumeItemListStart}{\begin{itemize}}
 \newcommand{\resumeItemListEnd}{\end{itemize}\vspace{2pt}}
 
+% Web/public PDF: `make public` via resume-public.tex, or \def\publicresumevariant{1} before \input{resume.tex}.
+\newif\ifpublicresume
+\publicresumefalse
+\ifdefined\publicresumevariant
+  \publicresumetrue
+\fi
+
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -140,8 +147,13 @@
 \begin{center}
 {\Huge\scshape Sébastien Barbier}\\[3pt]
 {\large Staff Software Engineer}\quad $|$\quad Full-Stack: TypeScript, React, Python\\[5pt]
+\ifpublicresume
+\href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
+\href{https://github.com/sebastienbarbier}{GitHub} $|$ \href{https://www.linkedin.com/in/sebbarbier/}{LinkedIn}
+\else
 \href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ +41~xx~xxx~xx~xx $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
 8005 Zürich, Switzerland $|$ 31 January 1988 $|$ French nationality $|$ B permit (EU/EFTA)
+\fi
 \end{center}
 \vspace{-3pt}
 Staff-level software engineer with 16+ years shipping production systems, including agentic AI platforms.\\
