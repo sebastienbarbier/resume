@@ -36,7 +36,8 @@
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[usenames,dvipsnames]{xcolor}
+\definecolor{photoborder}{gray}{0.62}
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
@@ -44,6 +45,7 @@
 \usepackage{lastpage}
 \usepackage[english]{babel}
 \usepackage{tabularx}
+\usepackage{graphicx}
 \ifdefined\pdfgentounicode\input{glyphtounicode}\fi
 
 
@@ -61,8 +63,7 @@
 
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
-\fancyhead[L]{\small\scshape Sébastien Barbier}
-\fancyhead[R]{\small Staff Software Engineer $|$ TypeScript, React, Python}
+\fancyfoot[L]{\small Sébastien Barbier\ $|$ Staff Software Engineer $|$ TypeScript, React, Python}
 \fancyfoot[R]{\small\thepage\ / \pageref{LastPage}}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
@@ -73,8 +74,7 @@
   \renewcommand{\footrulewidth}{0pt}
 }
 
-\usepackage[a4paper,margin=1.65cm,footskip=20pt]{geometry}
-\setlength{\headheight}{12pt}
+\usepackage[a4paper,margin=1.65cm,footskip=20pt,headheight=0pt,headsep=0pt]{geometry}
 \urlstyle{same}
 
 \raggedbottom
@@ -135,6 +135,13 @@
   \publicresumetrue
 \fi
 
+% Portrait top-left (Swiss CV). Disable with \def\noresumephoto{1} before \input, or for public variant.
+\newif\ifresumephoto
+\resumephototrue
+\ifpublicresume\resumephotofalse\fi
+\ifdefined\noresumephoto\resumephotofalse\fi
+\providecommand{\resumephotopath}{assets/resume-photo.jpg}
+
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -144,21 +151,40 @@
 \hypersetup{pdftitle={Sébastien Barbier - Staff Software Engineer},pdfauthor={Sébastien Barbier}}
 \begin{document}
 \thispagestyle{firstpage}
+\ifresumephoto
+\noindent
+\begin{minipage}[c]{3.2cm}
+{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{0.45pt}%
+\color{photoborder}%
+\fbox{\includegraphics[width=\dimexpr3.2cm-2\fboxrule\relax]{\resumephotopath}}}%
+\end{minipage}%
+\hspace{1cm}%
+\begin{minipage}[c]{\dimexpr\textwidth-4.2cm\relax}
+\raggedright
+{\Huge\scshape Sébastien Barbier}\\[2pt]
+{\large Staff Software Engineer}\quad $|$\quad Full-Stack: TypeScript, React, Python\\[4pt]
+\href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ +41~xx~xxx~xx~xx $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
+{\small 8005 Zürich, Switzerland $|$ 31 January 1988 $|$ French nationality $|$ B permit (EU/EFTA)}
+\end{minipage}
+\else
 \begin{center}
 {\Huge\scshape Sébastien Barbier}\\[3pt]
 {\large Staff Software Engineer}\quad $|$\quad Full-Stack: TypeScript, React, Python\\[5pt]
 \ifpublicresume
-\href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
-\href{https://github.com/sebastienbarbier}{GitHub} $|$ \href{https://www.linkedin.com/in/sebbarbier/}{LinkedIn}
+\href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}
 \else
 \href{mailto:contact@sebastienbarbier.com}{contact@sebastienbarbier.com} $|$ +41~xx~xxx~xx~xx $|$ \href{https://sebastienbarbier.com}{sebastienbarbier.com}\\[2pt]
 8005 Zürich, Switzerland $|$ 31 January 1988 $|$ French nationality $|$ B permit (EU/EFTA)
 \fi
 \end{center}
-\vspace{-3pt}
-Staff-level software engineer with 16+ years shipping production systems, including agentic AI platforms.\\
-Led frontend for an agentic AI platform at Unique AG and SAP FSM's move to microfrontends.\\
+\fi
+\par\nointerlineskip
+\vspace{14pt}%
+\noindent\begin{tabular}{@{}p{\textwidth}@{}}
+Staff-level software engineer with 16+ years shipping production systems, including agentic AI platforms.\\[2.5pt]
+Led frontend for an agentic AI platform at Unique AG and SAP FSM's move to microfrontends.\\[2.5pt]
 Currently building Shellui (TypeScript, React, Python/Django) and improving my German beyond B1.
+\end{tabular}
 
 \section{Personal Project}\resumeSubHeadingListStart
 \resumeSubheading{Full-Stack Developer}{Jan 2026 -- Oct 2026}{Shellui (\href{https://shellui.com}{shellui.com}): open-source microfrontend shell}{Zürich, Switzerland}
@@ -223,23 +249,23 @@ Currently building Shellui (TypeScript, React, Python/Django) and improving my G
 \resumeSubHeadingListEnd
 
 \section{Technical Skills}
+% A source newline is only a space. Each group title needs \\ before it, or it stays on the previous line.
 \begingroup
-\setlength{\parindent}{0pt}\setlength{\parskip}{4pt}\fontsize{10.5}{13}\selectfont
-\textbf{AI}\\
+\setlength{\parindent}{0pt}\setlength{\parskip}{0pt}\fontsize{10.5}{13}\selectfont
+{\normalsize\bfseries\scshape AI}\\[1pt]
 Agentic AI, Autonomous systems, LLMs, streaming responses, structured outputs, tool calling, RAG and MCP.\\
-AI-assisted engineering with AI coding agents as part of the daily workflow.
-\textbf{Frontend}\\
+AI-assisted engineering with AI coding agents as part of the daily workflow.\\[3.5pt]
+{\normalsize\bfseries\scshape Frontend}\\[1pt]
 TypeScript, JavaScript, React, Next.js, Angular, Tailwind CSS, PWA, accessibility, UX/UI.\\
-Microfrontends, Redux, MUI, D3, streaming chat interfaces, React Native.
-\textbf{Backend \& Architecture}\\
+Microfrontends, Redux, MUI, D3, streaming chat interfaces, React Native.\\[3.5pt]
+{\normalsize\bfseries\scshape Backend \& Architecture}\\[1pt]
 Python, Django REST Framework, Java, REST APIs, GraphQL, OpenAPI, SSO, Celery, PostgreSQL, Supabase.\\
-Multi-tenant SaaS, microfrontends, event-driven services, signed webhooks, retries, Redis.
-\textbf{Delivery \& Ops}\\
+Multi-tenant SaaS, microfrontends, event-driven services, signed webhooks, retries, Redis.\\[3.5pt]
+{\normalsize\bfseries\scshape Delivery \& Ops}\\[1pt]
 CI/CD, GitHub Actions, Docker, Cypress, unit and E2E testing, Sentry, Prometheus, Grafana.\\
-Git, Linux server administration, Tauri desktop builds.
-\textbf{Domains}\\
-Financial services, healthcare (HL7, DICOM, ISO 13485), enterprise SaaS, open source.\\
-Field service management (SAP), telemedicine (Covalia), decentralized finance (DeFi).
+Git, Linux server administration, Tauri desktop builds.\\[3.5pt]
+{\normalsize\bfseries\scshape Domains}\\[1pt]
+Financial services, healthcare (HL7, DICOM, ISO 13485), enterprise SaaS, open source, field service (SAP), telemedicine, DeFi.
 \par\endgroup
 
 \section{Soft Skills}

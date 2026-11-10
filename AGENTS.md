@@ -19,7 +19,9 @@ Use these exactly. Never invent dates, numbers, employers, titles, levels, or te
 | Languages     | French: native, English: fluent (no CEFR level), German: B1 (Goethe-Zertifikat B1, passed July 2026) |
 | Education     | Master's in Computer Science (2011) and Bachelor's in Computer Science (2009), University of Franche-Comté, France. The Erasmus year and HNC stay off the resume |
 
-Decided by the user, do not add: photo, interests, availability or notice period, mention of work certificates, a "References available on request" line.
+Portrait: `assets/resume-photo.jpg` (optimized) top-left in the Swiss header; omit for the public web variant (`\noresumephoto` / `\publicresumevariant`). Source masters stay out of the repo (`assets/resume_photo.jpg` is git-ignored).
+
+Decided by the user, do not add: interests, availability or notice period, mention of work certificates, a "References available on request" line.
 
 Product name: always write `Shellui` (never ShellUI). Shellui is a **personal project** (started Jan 2026, ongoing), not a job: show it in a "Personal Project" section (plural once there are several) with the title "Full-Stack Developer". Never use the word "Founder" for Shellui, in the header, the page header, bullets, or cover letters.
 
@@ -50,7 +52,7 @@ SAP: employer legal name is **SAP (Schweiz) AG**, department Field Service Manag
 7. **Education**: degree, field, institution, country, and year. Keep foreign degree names clear (for example "Master's in Computer Science").
 8. **References**: no references line (user's choice). Never list referee names or contacts without explicit consent, and do not mention Swiss work certificates (Arbeitszeugnisse).
 9. **Language of the CV**: match the job ad (English, German, or French). In German versions use Swiss spelling (`ss`, never `ß`) and `DD.MM.YYYY` dates.
-10. **Leave out**: salary expectations, reasons for leaving, religion, marital status, and anything not relevant to the role. No photo, interests, or availability line (user's choice).
+10. **Leave out**: salary expectations, reasons for leaving, religion, marital status, and anything not relevant to the role. No interests or availability line (user's choice).
 11. **Spelling of places**: use local names (`Zürich`) and company legal forms (`AG`, `GmbH`).
 
 ## Writing style
@@ -182,7 +184,7 @@ For each application, copy [`cover-letter.tex`](./cover-letter.tex) into the app
 ## Build and verify
 
 - Build with `make` (pdflatex), or `make docker TEX=resume.tex` when pdflatex is missing (start Docker Desktop first). For an application folder: `make -f ../../Makefile docker TEX=resume.tex CURDIR=$(pwd)`.
-- **Web/public PDF:** `make public` builds **`resume-public.pdf`** via [`resume-public.tex`](./resume-public.tex) (`\def\publicresumevariant{1}` then `\input{resume.tex}`). That variant drops phone, postcode, date of birth, nationality, and work permit from the header and shows email, website, GitHub, and LinkedIn instead. Application copies keep the full Swiss header.
+- **Web/public PDF:** `make public` builds **`resume-public.pdf`** via [`resume-public.tex`](./resume-public.tex) (`\def\publicresumevariant{1}` then `\input{resume.tex}`). That variant drops phone, postcode, date of birth, nationality, and work permit from the header and shows only the printable email and website. Do not add GitHub or LinkedIn labels: this PDF is for print, and those words are not URLs. Application copies keep the full Swiss header.
 - Render previews with `docker run --rm -v "$(pwd):/workdir" -w /workdir minidocks/poppler pdftoppm -png -r 80 resume.pdf preview`, then check them visually.
 - Verify: exactly two pages, no orphaned headings, no overfull lines, `scripts/check-page-fill.sh <pdf>` passes, and `bash scripts/check-pii.sh` passes.
 - Delete preview images and LaTeX aux files afterwards.

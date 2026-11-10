@@ -29,6 +29,9 @@ applications/
 # Private source documents (work certificates, contracts, job descriptions)
 references/
 
+# Keep diplomas private
+diplomas
+
 # Editor / OS
 .DS_Store
 *.swp
@@ -36,3 +39,11 @@ references/
 .idea/
 .vscode/
 /*.pdf.bak
+
+# Camera original (optimized build asset: assets/resume-photo.jpg)
+resume_photo.jpg
+assets/resume_photo.jpg
+# Local TeX font staging / root preview dumps (never commit)
+*.pfb
+pdftex.map
+/preview-*.png
